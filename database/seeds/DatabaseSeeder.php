@@ -1,23 +1,21 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Post;
 use App\User;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
 
-        factory(User::class)->create([
-            'name' => 'a',
-            'email' => 'a@a.com',
-            'password' => bcrypt('a')
-        ]);
+        // $user = factory(User::class)->create([
+        //     'name' => 'a',
+        //     'email' => 'a@a.com',
+        //     'password' => bcrypt('a'),
+        // ]);
+
+        $posts = factory(Post::class, 10)->create();
     }
 }
