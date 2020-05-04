@@ -4,37 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require("./bootstrap");
+require('./bootstrap')
 
-window.Vue = require("vue");
+window.Vue = require('vue')
 
-let handleOutsideClick;
+import './OutsideClick'
 
-Vue.directive("closable", {
-    bind(el, binding, vnode) {
-        handleOutsideClick = e => {
-            e.stopPropagation();
-            const { handler, exclude } = binding.value;
-            let clickedOnExcludedEl = false;
-            exclude.forEach(refName => {
-                if (!clickedOnExcludedEl) {
-                    const excludedEl = vnode.context.$refs[refName];
-                    clickedOnExcludedEl = excludedEl.contains(e.target);
-                }
-            });
-            if (!el.contains(e.target) && !clickedOnExcludedEl) {
-                vnode.context[handler]();
-            }
-        };
-        document.addEventListener("click", handleOutsideClick);
-        document.addEventListener("touchstart", handleOutsideClick);
-    },
-
-    unbind() {
-        document.removeEventListener("click", handleOutsideClick);
-        document.removeEventListener("touchstart", handleOutsideClick);
-    }
-});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -43,16 +18,16 @@ Vue.directive("closable", {
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-const files = require.context("./", true, /\.vue$/i);
+const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key =>
-    Vue.component(
-        key
-            .split("/")
-            .pop()
-            .split(".")[0],
-        files(key).default
-    )
-);
+  Vue.component(
+    key
+      .split('/')
+      .pop()
+      .split('.')[0],
+    files(key).default
+  )
+)
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -63,5 +38,5 @@ files.keys().map(key =>
  */
 
 const app = new Vue({
-    el: "#app"
-});
+  el: '#app',
+})

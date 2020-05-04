@@ -2,20 +2,29 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Role;
+use App\User;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $user = factory(User::class)->create();
 
-        $response->assertStatus(200);
+        $role = Role::make([
+            'name' => 'master',
+        ]);
+
+        $user->roles()->sync($role);
+
+        dump($user->roles->toArray());
+
+        // $user->roles()->save($role);
+
+        // dump($user->roles->toArray());
     }
 }

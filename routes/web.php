@@ -1,5 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\WelcomeController;
 
-Route::get('/', PostController::class);
+Route::get('/', [WelcomeController::class, 'index']);
