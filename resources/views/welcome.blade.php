@@ -19,31 +19,7 @@ table, th, td {
     </head>
     <body>
     <div id="app">
-        <!-- <example></example> -->
+        asdf
    </div>
-
-   {{ asset('/') }}
-   <script>
-       function curry(func) {
-
-        // return function curried(...args) {
-        //   if (args.length >= func.length) {
-        //     return func.apply(this, args);
-        //   } else {
-        //     return function(...args2) {
-        //       return curried.apply(this, args.concat(args2));
-        //     }
-        //   }
-        // };
-
-    console.log(func.length);
-
-    }
-
-    curry((asdf, asd2) => 23)
-
-    
-   </script>
-    
     </body>
 </html>
