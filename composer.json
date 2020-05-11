@@ -71,7 +71,7 @@
   "repositories": {
     "local": {
       "type": "path",
-      "url": "../packages/laravel-todos"
+      "url": "../packages/laravel-tinker-on-vscode"
     }
   }
 }

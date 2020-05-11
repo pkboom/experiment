@@ -1,12 +1,111 @@
-{
-    "id": 1,
-    "title": "voluptatibus voluptate corporis",
-    "body": "Tempora et ut debitis eveniet. Reprehenderit qui aut aut quis. Dolor quis blanditiis similique ut molestiae doloribus debitis et.",
-    "tags": [
-        "api",
-        "solid",
-        "oop"
-    ],
-    "created_at": "2020-05-11T15:49:28.000000Z",
-    "updated_at": "2020-05-11T15:49:28.000000Z"
-}
+[
+    {
+        "id": 3,
+        "name": "Mae Hessel",
+        "email": "kosinski@example.net",
+        "email_verified_at": "2020-05-11T20:18:22.000000Z",
+        "created_at": "2020-05-11T20:18:22.000000Z",
+        "updated_at": "2020-05-11T20:18:22.000000Z",
+        "posts": [
+            {
+                "id": 31,
+                "user_id": 3,
+                "title": "laborum laudantium repudiandae",
+                "body": "Ipsa soluta repellat incidunt aliquid vel. Dolore ipsum quos nihil. Hic quasi exercitationem quasi voluptas officia aut odit. Sed quia quo ut officiis consequatur.",
+                "tags": [
+                    "database",
+                    "php"
+                ],
+                "created_at": "2020-05-11T20:18:22.000000Z",
+                "updated_at": "2020-05-11T20:18:22.000000Z"
+            },
+            {
+                "id": 35,
+                "user_id": 3,
+                "title": "earum adipisci qui",
+                "body": "Ipsum provident voluptatibus error blanditiis. Tempore ab debitis totam non rem possimus. Laboriosam ducimus aliquam distinctio quia ex.",
+                "tags": [
+                    "php",
+                    "oop"
+                ],
+                "created_at": "2020-05-11T20:18:22.000000Z",
+                "updated_at": "2020-05-11T20:18:22.000000Z"
+            },
+            {
+                "id": 43,
+                "user_id": 3,
+                "title": "maiores voluptatibus error",
+                "body": "Laudantium omnis nulla placeat assumenda tempore est vel. Similique maiores voluptatem fuga. Dignissimos blanditiis dignissimos molestias adipisci.",
+                "tags": [
+                    "solid"
+                ],
+                "created_at": "2020-05-11T20:18:22.000000Z",
+                "updated_at": "2020-05-11T20:18:22.000000Z"
+            },
+            {
+                "id": 49,
+                "user_id": 3,
+                "title": "et quia et",
+                "body": "Assumenda commodi dolorem rerum eaque. Ratione est necessitatibus explicabo veritatis.",
+                "tags": [
+                    "php",
+                    "api"
+                ],
+                "created_at": "2020-05-11T20:18:22.000000Z",
+                "updated_at": "2020-05-11T20:18:22.000000Z"
+            },
+            {
+                "id": 61,
+                "user_id": 3,
+                "title": "sapiente molestiae fuga",
+                "body": "Magni occaecati dicta voluptas distinctio vel. Eum voluptatem provident itaque. Pariatur magnam aliquid quo voluptatem repellendus eos non.",
+                "tags": [
+                    "database",
+                    "api"
+                ],
+                "created_at": "2020-05-11T20:18:22.000000Z",
+                "updated_at": "2020-05-11T20:18:22.000000Z"
+            },
+            {
+                "id": 86,
+                "user_id": 3,
+                "title": "atque tempore non",
+                "body": "Alias ex repudiandae deleniti fugit sunt et vel. Omnis qui porro laboriosam consequuntur harum. Aut dolore id itaque accusantium et occaecati iure voluptatem.",
+                "tags": [
+                    "mysql",
+                    "oop"
+                ],
+                "created_at": "2020-05-11T20:18:23.000000Z",
+                "updated_at": "2020-05-11T20:18:23.000000Z"
+            },
+            {
+                "id": 98,
+                "user_id": 3,
+                "title": "sit velit laborum",
+                "body": "Doloremque itaque minus cum ipsa dolorum. Eum dolorem cumque suscipit nesciunt sint. Dolor quis odit quidem.",
+                "tags": [
+                    "solid",
+                    "api",
+                    "php"
+                ],
+                "created_at": "2020-05-11T20:18:23.000000Z",
+                "updated_at": "2020-05-11T20:18:23.000000Z"
+            }
+        ]
+    }
+]
+
+[
+    {
+        "query": "select * from `users` where `id` = ?",
+        "bindings": [
+            3
+        ],
+        "time": 2.39
+    },
+    {
+        "query": "select * from `posts` where `posts`.`user_id` in (3)",
+        "bindings": [],
+        "time": 1.24
+    }
+]

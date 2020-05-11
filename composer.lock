@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce9edac098171e4ce0959f7d76b24012",
+    "content-hash": "81af8c51888b9b3c142c85bcdd823818",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2749,12 +2749,74 @@
             "time": "2020-05-05T19:06:44+00:00"
         },
         {
-            "name": "pkboom/laravel-todos",
+            "name": "pkboom/laravel-tinker-on-vscode",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../packages/laravel-todos",
-                "reference": "e89cca2376996a17a9495d9c4a330c4d5997c209"
+                "url": "../packages/laravel-tinker-on-vscode",
+                "reference": "50e0e55458a218fc51e906b02a0d575cc947b240"
+            },
+            "require": {
+                "orchestra/testbench": "^5.2",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pkboom\\TinkerOnVscode\\TinkerOnVscodeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pkboom\\TinkerOnVscode\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Keunbae Park",
+                    "email": "ppotpo@gmail.com"
+                }
+            ],
+            "homepage": "https://github.com/pkboom/TinkerOnVscode",
+            "keywords": [
+                "TinkerOnVscode",
+                "pkboom"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "pkboom/laravel-todos",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pkboom/laravel-todos.git",
+                "reference": "8cd4afbc02068b100ed07217ec098c5c7b14a2ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pkboom/laravel-todos/zipball/8cd4afbc02068b100ed07217ec098c5c7b14a2ca",
+                "reference": "8cd4afbc02068b100ed07217ec098c5c7b14a2ca",
+                "shasum": ""
             },
             "require": {
                 "inertiajs/inertia-laravel": "^0.2.5",
@@ -2798,10 +2860,7 @@
             "keywords": [
                 "laravel-todos",
                 "pkboom"
-            ],
-            "transport-options": {
-                "relative": true
-            }
+            ]
         },
         {
             "name": "psr/container",
@@ -6777,6 +6836,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "pkboom/laravel-route-usage": 20,
+        "pkboom/laravel-tinker-on-vscode": 20,
         "pkboom/laravel-todos": 20
     },
     "prefer-stable": true,
