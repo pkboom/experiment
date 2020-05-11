@@ -1,0 +1,3 @@
+<?php
+
+Post::first()
