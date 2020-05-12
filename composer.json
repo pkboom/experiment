@@ -17,6 +17,7 @@
     "laravel/framework": "^7.0",
     "laravel/tinker": "^2.0",
     "laravel/ui": "^2.0",
+    "orisintel/laravel-migration-snapshot": "^2.0",
     "pkboom/laravel-route-usage": "dev-master",
     "pkboom/laravel-todos": "dev-master"
   },
