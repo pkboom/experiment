@@ -17,8 +17,7 @@
     "laravel/tinker": "^2.0",
     "laravel/ui": "^2.0",
     "pkboom/laravel-route-usage": "dev-master",
-    "pkboom/laravel-todos": "dev-master",
-    "spatie/laravel-stubs": "^1.1"
+    "pkboom/laravel-todos": "dev-master"
   },
   "require-dev": {
     "facade/ignition": "^2.0",

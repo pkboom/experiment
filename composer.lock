@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c41cef0fd78a02fa566cdc485bef770",
+    "content-hash": "0c07b81b7790c067c18f705416f3fc44",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -164,52 +164,6 @@
                 "math"
             ],
             "time": "2020-04-15T15:59:35+00:00"
-        },
-        {
-            "name": "degraciamathieu/manager",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DeGraciaMathieu/Manager.git",
-                "reference": "ceb69453fa2966ef7a8809a478cf372a23946f06"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DeGraciaMathieu/Manager/zipball/ceb69453fa2966ef7a8809a478cf372a23946f06",
-                "reference": "ceb69453fa2966ef7a8809a478cf372a23946f06",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "DeGraciaMathieu\\Manager\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "De Gracia Mathieu",
-                    "email": "contact@degracia-mathieu.fr"
-                }
-            ],
-            "description": "Implementation of the Manager pattern existing in Laravel framework.",
-            "homepage": "https://github.com/degraciamathieu/manager",
-            "keywords": [
-                "DesignPattern",
-                "laravel",
-                "manager",
-                "php"
-            ],
-            "time": "2020-03-14T18:29:12+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1006,6 +960,64 @@
                 "laravel"
             ],
             "time": "2020-02-28T14:50:19+00:00"
+        },
+        {
+            "name": "jenssegers/blade",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/blade.git",
+                "reference": "d221b717b4302ad71476ebd05abf0c2b98cbd7d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/blade/zipball/d221b717b4302ad71476ebd05abf0c2b98cbd7d8",
+                "reference": "d221b717b4302ad71476ebd05abf0c2b98cbd7d8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/view": "^5.5|^6.0|^7.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0|^7.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Blade\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "The standalone version of Laravel's Blade templating engine for use outside of Laravel.",
+            "keywords": [
+                "blade",
+                "laravel",
+                "render",
+                "template",
+                "view"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/jenssegers",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/jenssegers-blade",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-03-17T15:00:55+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1986,68 +1998,6 @@
                 }
             ],
             "time": "2020-05-02T13:35:10+00:00"
-        },
-        {
-            "name": "orisintel/laravel-migration-snapshot",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/orisintel/laravel-migration-snapshot.git",
-                "reference": "a5f3cb40b1d53245ad915b071900a9f4b4ac61a7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/orisintel/laravel-migration-snapshot/zipball/a5f3cb40b1d53245ad915b071900a9f4b4ac61a7",
-                "reference": "a5f3cb40b1d53245ad915b071900a9f4b4ac61a7",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^7.0",
-                "php": "^7.2.5"
-            },
-            "require-dev": {
-                "mockery/mockery": "~1.0",
-                "orchestra/testbench": "^5.0",
-                "phpunit/phpunit": "^8.4|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "OrisIntel\\MigrationSnapshot\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "OrisIntel\\MigrationSnapshot\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Paul R. Rogers",
-                    "role": "Developer"
-                },
-                {
-                    "name": "ORIS Intelligence",
-                    "email": "info@orisintel.com",
-                    "homepage": "https://orisintel.com",
-                    "role": "Organization"
-                }
-            ],
-            "description": "Dump and load snapshots of the schema produced by individual migrations.",
-            "homepage": "https://github.com/orisintel/laravel-migration-snapshot",
-            "keywords": [
-                "laravel",
-                "laravel-migration-snapshot",
-                "migration",
-                "orisintel"
-            ],
-            "time": "2020-04-16T03:27:35+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5987,6 +5937,52 @@
     ],
     "packages-dev": [
         {
+            "name": "degraciamathieu/manager",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DeGraciaMathieu/Manager.git",
+                "reference": "ceb69453fa2966ef7a8809a478cf372a23946f06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DeGraciaMathieu/Manager/zipball/ceb69453fa2966ef7a8809a478cf372a23946f06",
+                "reference": "ceb69453fa2966ef7a8809a478cf372a23946f06",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DeGraciaMathieu\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "De Gracia Mathieu",
+                    "email": "contact@degracia-mathieu.fr"
+                }
+            ],
+            "description": "Implementation of the Manager pattern existing in Laravel framework.",
+            "homepage": "https://github.com/degraciamathieu/manager",
+            "keywords": [
+                "DesignPattern",
+                "laravel",
+                "manager",
+                "php"
+            ],
+            "time": "2020-03-14T18:29:12+00:00"
+        },
+        {
             "name": "evenement/evenement",
             "version": "v3.0.1",
             "source": {
@@ -6334,6 +6330,68 @@
                 "symfony"
             ],
             "time": "2020-04-04T19:56:08+00:00"
+        },
+        {
+            "name": "orisintel/laravel-migration-snapshot",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orisintel/laravel-migration-snapshot.git",
+                "reference": "a5f3cb40b1d53245ad915b071900a9f4b4ac61a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orisintel/laravel-migration-snapshot/zipball/a5f3cb40b1d53245ad915b071900a9f4b4ac61a7",
+                "reference": "a5f3cb40b1d53245ad915b071900a9f4b4ac61a7",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^8.4|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OrisIntel\\MigrationSnapshot\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OrisIntel\\MigrationSnapshot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul R. Rogers",
+                    "role": "Developer"
+                },
+                {
+                    "name": "ORIS Intelligence",
+                    "email": "info@orisintel.com",
+                    "homepage": "https://orisintel.com",
+                    "role": "Organization"
+                }
+            ],
+            "description": "Dump and load snapshots of the schema produced by individual migrations.",
+            "homepage": "https://github.com/orisintel/laravel-migration-snapshot",
+            "keywords": [
+                "laravel",
+                "laravel-migration-snapshot",
+                "migration",
+                "orisintel"
+            ],
+            "time": "2020-04-16T03:27:35+00:00"
         },
         {
             "name": "pkboom/laravel-tinker-on-vscode",
