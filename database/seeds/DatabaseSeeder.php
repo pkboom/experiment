@@ -2,7 +2,9 @@
 
 use App\Post;
 use App\User;
+use Illuminate\Support\Arr;
 use Illuminate\Database\Seeder;
+use Pkboom\RouteUsage\Models\RouteHistory;
 use Illuminate\Database\Eloquent\Collection;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +16,14 @@ class DatabaseSeeder extends Seeder
         Collection::times(100, function ($key) use ($users) {
             factory(Post::class)->create([
                 'user_id' => $users->random()->id,
+            ]);
+        });
+
+        Collection::times(100, function ($key) {
+            RouteHistory::create([
+                'method' => 'GET',
+                'uri' => '/',
+                'referer' => Arr::random(['google.com', 'facebook.com', 'twitter.com']),
             ]);
         });
     }
