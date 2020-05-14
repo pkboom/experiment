@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/', function () {
-    logger(['asdf' => 'asdfsd']);
-});
+use App\Http\Controllers\WelcomeController;
+
+Route::get('/', [WelcomeController::class, 'index']);

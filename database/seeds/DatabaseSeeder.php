@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Seeder;
 use Pkboom\RouteUsage\Models\RouteHistory;
+use Pkboom\PostmarkWebhook\PostmarkMessage;
 use Illuminate\Database\Eloquent\Collection;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +27,7 @@ class DatabaseSeeder extends Seeder
                 'referer' => Arr::random(['google.com', 'facebook.com', 'twitter.com']),
             ]);
         });
+
+        // factory(PostmarkMessage::class, 100)->create();
     }
 }
