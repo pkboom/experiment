@@ -16,7 +16,8 @@
     "laravel/framework": "^7.0",
     "laravel/tinker": "^2.0",
     "laravel/ui": "^2.0",
-    "pkboom/laravel-route-usage": "dev-master"
+    "pkboom/laravel-route-usage": "dev-master",
+    "pkboom/laravel-tinker-on-vscode": "dev-master"
   },
   "require-dev": {
     "facade/ignition": "^2.0",
@@ -71,6 +72,10 @@
     "laravel-route-usage": {
       "type": "path",
       "url": "../packages/laravel-route-usage"
+    },
+    "laravel-tinker-on-vscode": {
+      "type": "path",
+      "url": "../packages/laravel-tinker-on-vscode"
     }
   }
 }

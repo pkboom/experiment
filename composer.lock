@@ -2696,7 +2696,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/laravel-tinker-on-vscode",
-                "reference": "00c1bcd64dfc53adf37b98d72e65768dcd329d4b"
+                "reference": "a59266befbb3e71bc4dd640180da215c94dd01f0"
             },
             "require": {
                 "orchestra/testbench": "^5.2",

@@ -11,15 +11,22 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
     </head>
     <body>
     <div id="app">
         asdf
-   </div>
+    </div>
+    <script>
+        console.log(navigator.userAgent);
+
+        console.log(isTesting());
+
+        function isTesting() {
+            return navigator.userAgent2 , navigator.userAgent.includes("Linux")
+                || navigator.userAgent.includes("jsdom")
+        }
+
+
+    </script>
     </body>
 </html>
