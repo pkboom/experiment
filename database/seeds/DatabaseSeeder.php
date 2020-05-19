@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
             ]);
         });
 
-        Collection::times(100, function ($key) {
-            RouteHistory::create([
-                'method' => 'GET',
-                'uri' => '/',
-                'referer' => Arr::random(['google.com', 'facebook.com', 'twitter.com']),
-            ]);
-        });
+        // Collection::times(100, function ($key) {
+        //     RouteHistory::create([
+        //         'method' => 'GET',
+        //         'uri' => '/',
+        //         'referer' => Arr::random(['google.com', 'facebook.com', 'twitter.com']),
+        //     ]);
+        // });
 
         // factory(PostmarkMessage::class, 100)->create();
     }
