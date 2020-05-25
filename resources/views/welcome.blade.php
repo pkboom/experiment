@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="asdf">
-    <head class=" asdf2">
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -14,19 +17,8 @@
     </head>
     <body>
     <div id="app">
-        asdf
+        <popper></popper>
     </div>
-    <script>
-        console.log(navigator.userAgent);
-
-        console.log(isTesting());
-
-        function isTesting() {
-            return navigator.userAgent2 , navigator.userAgent.includes("Linux")
-                || navigator.userAgent.includes("jsdom")
-        }
-
-
-    </script>
+  
     </body>
 </html>

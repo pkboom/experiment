@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e2c132f0da023dfe99dbb1ccd1dee71",
+    "content-hash": "0c9cc4da405ab9bc29b1e69d0fff21ca",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,61 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "barryvdh/laravel-translation-manager",
+            "version": "v0.5.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-translation-manager.git",
+                "reference": "284940e79c2f2266853ec817d781e9de3c437d0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-translation-manager/zipball/284940e79c2f2266853ec817d781e9de3c437d0b",
+                "reference": "284940e79c2f2266853ec817d781e9de3c437d0b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.5|^6|^7",
+                "illuminate/translation": "^5.5|^6|^7",
+                "php": ">=7",
+                "symfony/finder": "^3|^4|^5",
+                "tanmuhittin/laravel-google-translate": "^1.0.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Barryvdh\\TranslationManager\\ManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\TranslationManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Manage Laravel Translations",
+            "keywords": [
+                "laravel",
+                "translations",
+                "translator"
+            ],
+            "time": "2020-02-25T20:51:03+00:00"
         },
         {
             "name": "beyondcode/laravel-dump-server",
@@ -2960,64 +3015,6 @@
             }
         },
         {
-            "name": "pkboom/laravel-tinker-on-vscode",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../packages/laravel-tinker-on-vscode",
-                "reference": "03efb1620273245f728f3380bc2a11f768bf43b4"
-            },
-            "require": {
-                "laravel/tinker": "^1.0|^2.0",
-                "php": "^7.3",
-                "react/event-loop": "^1.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.2",
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Pkboom\\TinkerOnVscode\\TinkerOnVscodeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Pkboom\\TinkerOnVscode\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Keunbae Park",
-                    "email": "ppotpo@gmail.com"
-                }
-            ],
-            "homepage": "https://github.com/pkboom/tinekr-on-vscode",
-            "keywords": [
-                "TinkerOnVscode",
-                "pkboom"
-            ],
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -3510,48 +3507,6 @@
                 "uuid"
             ],
             "time": "2020-03-29T20:13:32+00:00"
-        },
-        {
-            "name": "react/event-loop",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/event-loop.git",
-                "reference": "6d24de090cd59cfc830263cfba965be77b563c13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/6d24de090cd59cfc830263cfba965be77b563c13",
-                "reference": "6d24de090cd59cfc830263cfba965be77b563c13",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.0 || ^6.4 || ^5.7 || ^4.8.35"
-            },
-            "suggest": {
-                "ext-event": "~1.0 for ExtEventLoop",
-                "ext-pcntl": "For signal handling support when using the StreamSelectLoop",
-                "ext-uv": "* for ExtUvLoop"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\EventLoop\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "ReactPHP's core reactor event loop that libraries can use for evented I/O.",
-            "keywords": [
-                "asynchronous",
-                "event-loop"
-            ],
-            "time": "2020-01-01T18:39:52+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -4167,6 +4122,55 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "stichoza/google-translate-php",
+            "version": "v4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Stichoza/google-translate-php.git",
+                "reference": "f5b8be4f573d53a52190651de27f16c679d84990"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/f5b8be4f573d53a52190651de27f16c679d84990",
+                "reference": "f5b8be4f573d53a52190651de27f16c679d84990",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "~6.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stichoza\\GoogleTranslate\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levan Velijanashvili",
+                    "email": "me@stichoza.com"
+                }
+            ],
+            "description": "Free Google Translate API PHP Package",
+            "homepage": "http://github.com/Stichoza/google-translate-php",
+            "keywords": [
+                "google",
+                "php",
+                "translate",
+                "translator"
+            ],
+            "time": "2020-02-11T01:34:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5801,6 +5805,54 @@
             "time": "2020-04-12T16:45:47+00:00"
         },
         {
+            "name": "tanmuhittin/laravel-google-translate",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tanmuhittin/laravel-google-translate.git",
+                "reference": "393e5a85dbbceec4ff233836092f978fdcd5dcce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tanmuhittin/laravel-google-translate/zipball/393e5a85dbbceec4ff233836092f978fdcd5dcce",
+                "reference": "393e5a85dbbceec4ff233836092f978fdcd5dcce",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": ">=5.1",
+                "illuminate/support": "^5.5|^6|^7",
+                "illuminate/translation": "^5.5|^6|^7",
+                "php": ">=7.0.0",
+                "stichoza/google-translate-php": "^4.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "phpunit/phpunit": "^8.3@dev"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tanmuhittin\\LaravelGoogleTranslate\\LaravelGoogleTranslateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tanmuhittin\\LaravelGoogleTranslate\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Muhittin Tan",
+                    "email": "tanmuhittin@gmail.com"
+                }
+            ],
+            "description": "Translate translation files to other languages using google translate api",
+            "time": "2020-03-04T18:54:19+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.1.3",
             "source": {
@@ -6367,6 +6419,106 @@
                 "symfony"
             ],
             "time": "2020-04-04T19:56:08+00:00"
+        },
+        {
+            "name": "pkboom/laravel-tinker-on-vscode",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../packages/laravel-tinker-on-vscode",
+                "reference": "27aa2b9869a81686dbaf98e8d5ff5a5307b28697"
+            },
+            "require": {
+                "laravel/tinker": "^1.0|^2.0",
+                "php": "^7.3",
+                "react/event-loop": "^1.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.2",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pkboom\\TinkerOnVscode\\TinkerOnVscodeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pkboom\\TinkerOnVscode\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Keunbae Park",
+                    "email": "ppotpo@gmail.com"
+                }
+            ],
+            "homepage": "https://github.com/pkboom/tinekr-on-vscode",
+            "keywords": [
+                "TinkerOnVscode",
+                "pkboom"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "react/event-loop",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/event-loop.git",
+                "reference": "6d24de090cd59cfc830263cfba965be77b563c13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/6d24de090cd59cfc830263cfba965be77b563c13",
+                "reference": "6d24de090cd59cfc830263cfba965be77b563c13",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0 || ^6.4 || ^5.7 || ^4.8.35"
+            },
+            "suggest": {
+                "ext-event": "~1.0 for ExtEventLoop",
+                "ext-pcntl": "For signal handling support when using the StreamSelectLoop",
+                "ext-uv": "* for ExtUvLoop"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "React\\EventLoop\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "ReactPHP's core reactor event loop that libraries can use for evented I/O.",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "time": "2020-01-01T18:39:52+00:00"
         },
         {
             "name": "scrivo/highlight.php",
