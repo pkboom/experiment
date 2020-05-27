@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16c697f97b26e0f7268aad200f47869e",
+    "content-hash": "d6c2842decc614bce7c7e073e0707de9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2093,6 +2093,70 @@
             "time": "2020-03-29T20:13:32+00:00"
         },
         {
+            "name": "spatie/laravel-log-dumper",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-log-dumper.git",
+                "reference": "5b73af8516113a41fce461060df0d312ffe79df2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-log-dumper/zipball/5b73af8516113a41fce461060df0d312ffe79df2",
+                "reference": "5b73af8516113a41fce461060df0d312ffe79df2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.0",
+                "spatie/phpunit-snapshot-assertions": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LogDumper\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A function to dump anything to the log",
+            "homepage": "https://github.com/spatie/laravel-log-dumper",
+            "keywords": [
+                "laravel-log-dumper",
+                "spatie"
+            ],
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-04-14T11:37:28+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.3",
             "source": {
@@ -3916,6 +3980,61 @@
     ],
     "packages-dev": [
         {
+            "name": "awssat/discord-notification-channel",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awssat/discord-notification-channel.git",
+                "reference": "736b22349a6ca3c0d75f12810b9d8dc4e651fb8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awssat/discord-notification-channel/zipball/736b22349a6ca3c0d75f12810b9d8dc4e651fb8c",
+                "reference": "736b22349a6ca3c0d75f12810b9d8dc4e651fb8c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "illuminate/notifications": "~5.8.0|^6.0|^7.0",
+                "laravel/slack-notification-channel": "^2.0",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Awssat\\Notifications\\DiscordChannelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Awssat\\Notifications\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bader Almutairi",
+                    "email": "phpfalcon@gmail.com"
+                }
+            ],
+            "description": "Discord Notification Channel for laravel.",
+            "keywords": [
+                "discord",
+                "laravel",
+                "notifications"
+            ],
+            "time": "2020-02-15T11:57:00+00:00"
+        },
+        {
             "name": "doctrine/cache",
             "version": "1.10.0",
             "source": {
@@ -4572,6 +4691,63 @@
             "time": "2016-01-20T08:20:44+00:00"
         },
         {
+            "name": "laravel/slack-notification-channel",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/slack-notification-channel.git",
+                "reference": "ecc90a70791195d6f5e20b2732a5eb1eb9619d10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/slack-notification-channel/zipball/ecc90a70791195d6f5e20b2732a5eb1eb9619d10",
+                "reference": "ecc90a70791195d6f5e20b2732a5eb1eb9619d10",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "illuminate/notifications": "~5.8.0|^6.0|^7.0",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Illuminate\\Notifications\\SlackChannelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Notifications\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Slack Notification Channel for laravel.",
+            "keywords": [
+                "laravel",
+                "notifications",
+                "slack"
+            ],
+            "time": "2019-08-27T14:40:26+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.4.0",
             "source": {
@@ -4756,6 +4932,68 @@
                 "symfony"
             ],
             "time": "2020-04-04T19:56:08+00:00"
+        },
+        {
+            "name": "orisintel/laravel-migration-snapshot",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orisintel/laravel-migration-snapshot.git",
+                "reference": "a5f3cb40b1d53245ad915b071900a9f4b4ac61a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orisintel/laravel-migration-snapshot/zipball/a5f3cb40b1d53245ad915b071900a9f4b4ac61a7",
+                "reference": "a5f3cb40b1d53245ad915b071900a9f4b4ac61a7",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^8.4|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OrisIntel\\MigrationSnapshot\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OrisIntel\\MigrationSnapshot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul R. Rogers",
+                    "role": "Developer"
+                },
+                {
+                    "name": "ORIS Intelligence",
+                    "email": "info@orisintel.com",
+                    "homepage": "https://orisintel.com",
+                    "role": "Organization"
+                }
+            ],
+            "description": "Dump and load snapshots of the schema produced by individual migrations.",
+            "homepage": "https://github.com/orisintel/laravel-migration-snapshot",
+            "keywords": [
+                "laravel",
+                "laravel-migration-snapshot",
+                "migration",
+                "orisintel"
+            ],
+            "time": "2020-04-16T03:27:35+00:00"
         },
         {
             "name": "phar-io/manifest",

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
@@ -11,6 +12,9 @@ class ExampleTest extends TestCase
 
     public function testBasicTest()
     {
-        $this->post('/', ['foo' => 'bar']);
+        dump('asdf');
+        // Notification::resolved(function ($service) {
+        //     dd($service);
+        // });
     }
 }
