@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Tests\TestCase;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
@@ -12,9 +12,10 @@ class ExampleTest extends TestCase
 
     public function testBasicTest()
     {
-        dump('asdf');
-        // Notification::resolved(function ($service) {
-        //     dd($service);
-        // });
+        $user = factory(User::class)->create();
+
+        $user->unreadMessagesCount = 33333;
+
+        dd($user);
     }
 }

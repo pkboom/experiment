@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use Dompdf\Dompdf;
+use Illuminate\Support\Facades\View;
+use Symfony\Component\HttpFoundation\Response;
+
 class WelcomeController extends Controller
 {
     public function index()
     {
-        dump(request()->all());
+        $dompdf = new Dompdf();
+        $dompdf->setPaper('letter');
+        $dompdf->loadHtml(View::make('welcome')->render());
 
-        request()->replace([
-            'foo' => 'foo',
+        $dompdf->render();
+
+        $output = $dompdf->output();
+
+        return new Response($output, 200, [
+            'Content-Disposition' => 'inline',
+            // 'Content-Disposition' => 'attachment; filename=csdf.pdf',
+            'Content-Type' => 'application/pdf',
         ]);
-
-        dump(request()->all());
-
-        return view('welcome');
     }
 }

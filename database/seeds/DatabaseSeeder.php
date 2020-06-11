@@ -1,7 +1,5 @@
 <?php
 
-use App\Post;
-use App\User;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Seeder;
 use Pkboom\RouteUsage\Models\RouteHistory;
@@ -12,14 +10,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $users = factory(User::class, 10)->create();
-
-        Collection::times(100, function ($key) use ($users) {
-            factory(Post::class)->create([
-                'user_id' => $users->random()->id,
-            ]);
-        });
-
         // Collection::times(100, function ($key) {
         //     RouteHistory::create([
         //         'method' => 'GET',

@@ -8,8 +8,9 @@ class Role extends Model
 {
     protected $guarded = [];
 
+
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasManyJson('App\User', 'options->role_ids');
     }
 }
