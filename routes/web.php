@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\CheckoutController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 
-Route::post('payment', [PaymentController::class, 'create']);
+Route::get('/', function () {
+    return Response::make('', 409, ['X-Inertia-Location' => $url]);
+});
 
-Route::get('checkout', [CheckoutController::class, 'create'])
-    ->name('checkout');
+// asdfasdf

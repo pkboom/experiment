@@ -8,16 +8,16 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.2.5",
+    "php": "^7.4",
+    "bacon/bacon-qr-code": "^2.0",
     "beyondcode/laravel-dump-server": "^1.4",
     "fideloper/proxy": "^4.2",
     "fruitcake/laravel-cors": "^1.0",
     "guzzlehttp/guzzle": "^6.3",
+    "inertiajs/inertia-laravel": "^0.2.8",
     "laravel/framework": "^7.0",
     "laravel/tinker": "^2.0",
-    "laravel/ui": "^2.0",
-    "renoki-co/cashier-register": "^1.0",
-    "stripe/stripe-php": "^7.41"
+    "laravel/ui": "^2.0"
   },
   "require-dev": {
     "facade/ignition": "^2.0",
