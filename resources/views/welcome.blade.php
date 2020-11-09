@@ -14,7 +14,9 @@
 </head>
 
 <body>
-    <welcome></welcome>
+    <div id="app">
+        <welcome></welcome>
+    </div>
 </body>
 
 </html>
