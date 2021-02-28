@@ -13,50 +13,26 @@ class RetrieveEvents extends Command
 
     public function handle()
     {
-        while (true) {
-            if ($this->supportsAsyncSignals()) {
-                $this->listenForSignals();
-            }
+        $url = 'http://api.sportradar.us/nhl/trial/stream/en/events/subscribe?api_key=nbqpwfg6z6kv4xezfnb46dnu';
+        $stream = fopen($url, 'r');
 
-            $url = 'http://api.sportradar.us/nhl/trial/stream/en/events/subscribe?api_key=nbqpwfg6z6kv4xezfnb46dnu';
-            $stream = fopen($url, 'r');
+        $listener = new SimpleObjectQueueListener(function ($object) {
+            Log::info($object);
+        });
 
-            $listener = new SimpleObjectQueueListener(function ($object) {
-                Log::info($object);
-            });
+        try {
+            // $parser = new \JsonStreamingParser\Parser($stream, $listener);
+            $parser = new \JsonStreamingParser\Parser($stream, $listener, "\n", false, 32);
 
-            try {
-                // $parser = new \JsonStreamingParser\Parser($stream, $listener);
-                $parser = new \JsonStreamingParser\Parser($stream, $listener, "\n", false, 32);
+            $parser->parse();
 
-                $parser->parse();
+            fclose($stream);
+        } catch (Exception $e) {
+            fclose($stream);
 
-                fclose($stream);
-            } catch (Exception $e) {
-                fclose($stream);
-
-                Log::info($e);
-            }
-
-            sleep(1);
+            Log::info($e);
         }
 
         return 0;
-    }
-
-    protected function supportsAsyncSignals()
-    {
-        return extension_loaded('pcntl');
-    }
-
-    protected function listenForSignals()
-    {
-        pcntl_async_signals(true);
-
-        pcntl_signal(SIGTERM, function () {
-            Log::info('end retrieving');
-
-            // email that retrieving events stopped.
-        });
     }
 }
