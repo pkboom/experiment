@@ -13,6 +13,8 @@ class RetrieveEvents extends Command
 
     public function handle()
     {
+        Log::info('=-------------------------------------------------------------retrieving events');
+
         $url = 'http://api.sportradar.us/nhl/trial/stream/en/events/subscribe?api_key=nbqpwfg6z6kv4xezfnb46dnu';
         $stream = fopen($url, 'r');
 
