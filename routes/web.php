@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Laravel\Socialite\Facades\Socialite;
+use League\CommonMark\CommonMarkConverter;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -20,12 +19,8 @@ use Laravel\Socialite\Facades\Socialite;
 //     return Inertia::render('Dashboard');
 // })->name('dashboard');
 
-Route::get('/', function (Request $request) {
-    // $request->session()->put('state', 'foooooooooo');
-    // $request->session()->regenerate();
-    // dump(get_class($request->session()));
-    // dump($request->session()->all());
-    // dump($request->session()->get('state', 'goooooooooo'));
-    // Socialite::driver('github')->redirect();
-    return now();
+Route::get('/', function () {
+    $converter = new CommonMarkConverter();
+    
+    return $converter->convertToHtml('# Hello World!');
 });
