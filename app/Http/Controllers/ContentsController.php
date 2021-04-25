@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Section;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -19,6 +18,7 @@ class ContentsController extends Controller
                 ->get()
                 ->map
                 ->only('id', 'name'),
+            'new' => 'new',
         ]);
     }
 
@@ -28,6 +28,17 @@ class ContentsController extends Controller
             'course' => $section->course->only('id', 'name'),
             'section' => $section->only('id'),
             'elearnings' => Auth::user()->authAccount()->elearnings()
+                ->where('is_uploaded', true)
+                ->orderBy('name')
+                ->get()
+                ->map
+                ->only('id', 'name'),
+            'quizzes' => Auth::user()->authAccount()->quizzes()
+                ->orderBy('name')
+                ->get()
+                ->map
+                ->only('id', 'name'),
+            'files' => Auth::user()->authAccount()->files()
                 ->where('is_uploaded', true)
                 ->orderBy('name')
                 ->get()
