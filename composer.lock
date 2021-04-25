@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d331c417b78d78bb9bb35f42183a0c4b",
+    "content-hash": "83e013afcc0bb63f5ac3c16b52e9948d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7750,16 +7750,16 @@
         },
         {
             "name": "pkboom/laravel-tinker-on-vscode",
-            "version": "v0.12",
+            "version": "0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pkboom/laravel-tinker-on-vscode.git",
-                "reference": "0c426d9eeefb933779cfefbb925499da882ce680"
+                "reference": "20411c12ed117370bd8f7d1114ece191251d66a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pkboom/laravel-tinker-on-vscode/zipball/0c426d9eeefb933779cfefbb925499da882ce680",
-                "reference": "0c426d9eeefb933779cfefbb925499da882ce680",
+                "url": "https://api.github.com/repos/pkboom/laravel-tinker-on-vscode/zipball/20411c12ed117370bd8f7d1114ece191251d66a6",
+                "reference": "20411c12ed117370bd8f7d1114ece191251d66a6",
                 "shasum": ""
             },
             "require": {
@@ -7801,9 +7801,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pkboom/laravel-tinker-on-vscode/issues",
-                "source": "https://github.com/pkboom/laravel-tinker-on-vscode/tree/v0.12"
+                "source": "https://github.com/pkboom/laravel-tinker-on-vscode/tree/0.14"
             },
-            "time": "2021-02-04T22:10:55+00:00"
+            "time": "2021-04-25T00:25:23+00:00"
         },
         {
             "name": "react/event-loop",
