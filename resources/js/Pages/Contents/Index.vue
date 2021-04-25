@@ -1,20 +1,20 @@
 <template>
-    <div>
+  <div>
     
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-		course: String,
-		section: String,
-		elearnings: String,
-    }, 
-    data() {
+  props: {
+		course: Number,
+		section: Boolean,
+		elearnings: Array,
+  }, 
+  data() {
     return {}
-    },
-    mounted() {},
-    methods: {},
+  },
+  mounted() {},
+  methods: {},
 }
 </script>
