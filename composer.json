@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.5",
         "league/commonmark": "^1.5",
         "nikic/php-parser": "^4.10",
+        "pkboom/laravel-inertia-vue-component": "dev-master",
         "salsify/json-streaming-parser": "^8.2",
         "spatie/laravel-query-builder": "^3.3",
         "spatie/laravel-tail": "^4.3",
@@ -74,6 +75,10 @@
         ]
     },
     "repositories": {
+        "laravel-inertia-vue-component": {
+            "type": "path",
+            "url": "../packages/laravel-inertia-vue-component"
+        },
         "laravel-remote": {
             "type": "path",
             "url": "../packages/laravel-remote"

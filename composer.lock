@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83e013afcc0bb63f5ac3c16b52e9948d",
+    "content-hash": "b27efc9479f5a3ceccf8a60a141a7f48",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2688,6 +2688,48 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "pkboom/laravel-inertia-vue-component",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../packages/laravel-inertia-vue-component",
+                "reference": "0760ef986ed12e62bbea56bdeb0122f4d3e4b68f"
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pkboom\\InertiaVueComponent\\InertiaVueComponentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pkboom\\InertiaVueComponent\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Keunbae Park",
+                    "email": "ppotpo@gmail.com"
+                }
+            ],
+            "homepage": "https://github.com/pkboom/laravel-inertia-vue-component",
+            "keywords": [
+                "laravel-inertia-vue-component",
+                "pkboom"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "pragmarx/google2fa",
@@ -8868,7 +8910,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "pkboom/laravel-inertia-vue-component": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
