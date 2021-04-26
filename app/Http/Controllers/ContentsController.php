@@ -18,11 +18,10 @@ class ContentsController extends Controller
                 ->get()
                 ->map
                 ->only('id', 'name'),
-            'new' => 'new',
         ]);
     }
 
-    public function create(Section $section)
+    public function create()
     {
         return Inertia::render('Contents/Create', [
             'course' => $section->course->only('id', 'name'),
@@ -33,17 +32,10 @@ class ContentsController extends Controller
                 ->get()
                 ->map
                 ->only('id', 'name'),
-            'quizzes' => Auth::user()->authAccount()->quizzes()
-                ->orderBy('name')
-                ->get()
-                ->map
-                ->only('id', 'name'),
-            'files' => Auth::user()->authAccount()->files()
-                ->where('is_uploaded', true)
-                ->orderBy('name')
-                ->get()
-                ->map
-                ->only('id', 'name'),
         ]);
+    }
+
+    public function asdf()
+    {
     }
 }

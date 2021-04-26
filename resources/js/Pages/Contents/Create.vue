@@ -7,15 +7,9 @@
 <script>
 export default {
   props: {
-
-		course: Object,
-		section: String,
-		elearnings: Number,
-		quizzes: Object,
-		files: String,
-		links: Number,
-		contents: Boolean,
-		certificates: Number,
+		course: Array,
+		section: Array,
+		elearnings: Array,
   }, 
   data() {
     return {}

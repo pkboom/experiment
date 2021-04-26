@@ -5,12 +5,9 @@
 <script>
 export default {
   props: {
-
-
-		section: String,
-		elearnings: Number,
-    course: Object,
-    new: Boolean,
+		course: Array,
+    section: Object,
+    elearnings: Array,
   },
   data() {
     return {}
