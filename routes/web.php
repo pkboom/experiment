@@ -2,9 +2,9 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use League\CommonMark\CommonMarkConverter;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -20,7 +20,9 @@ use League\CommonMark\CommonMarkConverter;
 // })->name('dashboard');
 
 Route::get('/', function () {
-    $converter = new CommonMarkConverter();
-    
-    return $converter->convertToHtml('# Hello World!');
+    $wheres = ['value', 'value3'];
+
+    Cache::put('key', array_unique([...$wheres, ...Cache::get('key', [])]), 5);
+
+    dump(Cache::get('key'));
 });
