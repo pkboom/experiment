@@ -4319,6 +4319,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Image.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Image.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var blurhash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! blurhash */ "./node_modules/blurhash/dist/index.js");
+/* harmony import */ var blurhash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(blurhash__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    hash: String
+  },
+  data: function data() {
+    return {
+      width: 32,
+      height: 32
+    };
+  },
+  mounted: function mounted() {
+    var pixels = (0,blurhash__WEBPACK_IMPORTED_MODULE_0__.decode)(this.hash, this.width, this.height);
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    var imageData = ctx.createImageData(this.width, this.height);
+    imageData.data.set(pixels);
+    ctx.putImageData(imageData, 0, 0);
+    console.log(this.$refs.image);
+    this.$refs.image.appendChild(canvas);
+  },
+  methods: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/PrivacyPolicy.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/PrivacyPolicy.vue?vue&type=script&lang=js& ***!
@@ -6248,6 +6291,416 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./node_modules/blurhash/dist/base83.js":
+/*!**********************************************!*\
+  !*** ./node_modules/blurhash/dist/base83.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var digitCharacters = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+    "#",
+    "$",
+    "%",
+    "*",
+    "+",
+    ",",
+    "-",
+    ".",
+    ":",
+    ";",
+    "=",
+    "?",
+    "@",
+    "[",
+    "]",
+    "^",
+    "_",
+    "{",
+    "|",
+    "}",
+    "~"
+];
+exports.decode83 = function (str) {
+    var value = 0;
+    for (var i = 0; i < str.length; i++) {
+        var c = str[i];
+        var digit = digitCharacters.indexOf(c);
+        value = value * 83 + digit;
+    }
+    return value;
+};
+exports.encode83 = function (n, length) {
+    var result = "";
+    for (var i = 1; i <= length; i++) {
+        var digit = (Math.floor(n) / Math.pow(83, length - i)) % 83;
+        result += digitCharacters[Math.floor(digit)];
+    }
+    return result;
+};
+//# sourceMappingURL=base83.js.map
+
+/***/ }),
+
+/***/ "./node_modules/blurhash/dist/decode.js":
+/*!**********************************************!*\
+  !*** ./node_modules/blurhash/dist/decode.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var base83_1 = __webpack_require__(/*! ./base83 */ "./node_modules/blurhash/dist/base83.js");
+var utils_1 = __webpack_require__(/*! ./utils */ "./node_modules/blurhash/dist/utils.js");
+var error_1 = __webpack_require__(/*! ./error */ "./node_modules/blurhash/dist/error.js");
+/**
+ * Returns an error message if invalid or undefined if valid
+ * @param blurhash
+ */
+var validateBlurhash = function (blurhash) {
+    if (!blurhash || blurhash.length < 6) {
+        throw new error_1.ValidationError("The blurhash string must be at least 6 characters");
+    }
+    var sizeFlag = base83_1.decode83(blurhash[0]);
+    var numY = Math.floor(sizeFlag / 9) + 1;
+    var numX = (sizeFlag % 9) + 1;
+    if (blurhash.length !== 4 + 2 * numX * numY) {
+        throw new error_1.ValidationError("blurhash length mismatch: length is " + blurhash.length + " but it should be " + (4 + 2 * numX * numY));
+    }
+};
+exports.isBlurhashValid = function (blurhash) {
+    try {
+        validateBlurhash(blurhash);
+    }
+    catch (error) {
+        return { result: false, errorReason: error.message };
+    }
+    return { result: true };
+};
+var decodeDC = function (value) {
+    var intR = value >> 16;
+    var intG = (value >> 8) & 255;
+    var intB = value & 255;
+    return [utils_1.sRGBToLinear(intR), utils_1.sRGBToLinear(intG), utils_1.sRGBToLinear(intB)];
+};
+var decodeAC = function (value, maximumValue) {
+    var quantR = Math.floor(value / (19 * 19));
+    var quantG = Math.floor(value / 19) % 19;
+    var quantB = value % 19;
+    var rgb = [
+        utils_1.signPow((quantR - 9) / 9, 2.0) * maximumValue,
+        utils_1.signPow((quantG - 9) / 9, 2.0) * maximumValue,
+        utils_1.signPow((quantB - 9) / 9, 2.0) * maximumValue
+    ];
+    return rgb;
+};
+var decode = function (blurhash, width, height, punch) {
+    validateBlurhash(blurhash);
+    punch = punch | 1;
+    var sizeFlag = base83_1.decode83(blurhash[0]);
+    var numY = Math.floor(sizeFlag / 9) + 1;
+    var numX = (sizeFlag % 9) + 1;
+    var quantisedMaximumValue = base83_1.decode83(blurhash[1]);
+    var maximumValue = (quantisedMaximumValue + 1) / 166;
+    var colors = new Array(numX * numY);
+    for (var i = 0; i < colors.length; i++) {
+        if (i === 0) {
+            var value = base83_1.decode83(blurhash.substring(2, 6));
+            colors[i] = decodeDC(value);
+        }
+        else {
+            var value = base83_1.decode83(blurhash.substring(4 + i * 2, 6 + i * 2));
+            colors[i] = decodeAC(value, maximumValue * punch);
+        }
+    }
+    var bytesPerRow = width * 4;
+    var pixels = new Uint8ClampedArray(bytesPerRow * height);
+    for (var y = 0; y < height; y++) {
+        for (var x = 0; x < width; x++) {
+            var r = 0;
+            var g = 0;
+            var b = 0;
+            for (var j = 0; j < numY; j++) {
+                for (var i = 0; i < numX; i++) {
+                    var basis = Math.cos((Math.PI * x * i) / width) *
+                        Math.cos((Math.PI * y * j) / height);
+                    var color = colors[i + j * numX];
+                    r += color[0] * basis;
+                    g += color[1] * basis;
+                    b += color[2] * basis;
+                }
+            }
+            var intR = utils_1.linearTosRGB(r);
+            var intG = utils_1.linearTosRGB(g);
+            var intB = utils_1.linearTosRGB(b);
+            pixels[4 * x + 0 + y * bytesPerRow] = intR;
+            pixels[4 * x + 1 + y * bytesPerRow] = intG;
+            pixels[4 * x + 2 + y * bytesPerRow] = intB;
+            pixels[4 * x + 3 + y * bytesPerRow] = 255; // alpha
+        }
+    }
+    return pixels;
+};
+exports.default = decode;
+//# sourceMappingURL=decode.js.map
+
+/***/ }),
+
+/***/ "./node_modules/blurhash/dist/encode.js":
+/*!**********************************************!*\
+  !*** ./node_modules/blurhash/dist/encode.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var base83_1 = __webpack_require__(/*! ./base83 */ "./node_modules/blurhash/dist/base83.js");
+var utils_1 = __webpack_require__(/*! ./utils */ "./node_modules/blurhash/dist/utils.js");
+var error_1 = __webpack_require__(/*! ./error */ "./node_modules/blurhash/dist/error.js");
+var bytesPerPixel = 4;
+var multiplyBasisFunction = function (pixels, width, height, basisFunction) {
+    var r = 0;
+    var g = 0;
+    var b = 0;
+    var bytesPerRow = width * bytesPerPixel;
+    for (var x = 0; x < width; x++) {
+        for (var y = 0; y < height; y++) {
+            var basis = basisFunction(x, y);
+            r +=
+                basis * utils_1.sRGBToLinear(pixels[bytesPerPixel * x + 0 + y * bytesPerRow]);
+            g +=
+                basis * utils_1.sRGBToLinear(pixels[bytesPerPixel * x + 1 + y * bytesPerRow]);
+            b +=
+                basis * utils_1.sRGBToLinear(pixels[bytesPerPixel * x + 2 + y * bytesPerRow]);
+        }
+    }
+    var scale = 1 / (width * height);
+    return [r * scale, g * scale, b * scale];
+};
+var encodeDC = function (value) {
+    var roundedR = utils_1.linearTosRGB(value[0]);
+    var roundedG = utils_1.linearTosRGB(value[1]);
+    var roundedB = utils_1.linearTosRGB(value[2]);
+    return (roundedR << 16) + (roundedG << 8) + roundedB;
+};
+var encodeAC = function (value, maximumValue) {
+    var quantR = Math.floor(Math.max(0, Math.min(18, Math.floor(utils_1.signPow(value[0] / maximumValue, 0.5) * 9 + 9.5))));
+    var quantG = Math.floor(Math.max(0, Math.min(18, Math.floor(utils_1.signPow(value[1] / maximumValue, 0.5) * 9 + 9.5))));
+    var quantB = Math.floor(Math.max(0, Math.min(18, Math.floor(utils_1.signPow(value[2] / maximumValue, 0.5) * 9 + 9.5))));
+    return quantR * 19 * 19 + quantG * 19 + quantB;
+};
+var encode = function (pixels, width, height, componentX, componentY) {
+    if (componentX < 1 || componentX > 9 || componentY < 1 || componentY > 9) {
+        throw new error_1.ValidationError("BlurHash must have between 1 and 9 components");
+    }
+    if (width * height * 4 !== pixels.length) {
+        throw new error_1.ValidationError("Width and height must match the pixels array");
+    }
+    var factors = [];
+    var _loop_1 = function (y) {
+        var _loop_2 = function (x) {
+            var normalisation = x == 0 && y == 0 ? 1 : 2;
+            var factor = multiplyBasisFunction(pixels, width, height, function (i, j) {
+                return normalisation *
+                    Math.cos((Math.PI * x * i) / width) *
+                    Math.cos((Math.PI * y * j) / height);
+            });
+            factors.push(factor);
+        };
+        for (var x = 0; x < componentX; x++) {
+            _loop_2(x);
+        }
+    };
+    for (var y = 0; y < componentY; y++) {
+        _loop_1(y);
+    }
+    var dc = factors[0];
+    var ac = factors.slice(1);
+    var hash = "";
+    var sizeFlag = componentX - 1 + (componentY - 1) * 9;
+    hash += base83_1.encode83(sizeFlag, 1);
+    var maximumValue;
+    if (ac.length > 0) {
+        var actualMaximumValue = Math.max.apply(Math, ac.map(function (val) { return Math.max.apply(Math, val); }));
+        var quantisedMaximumValue = Math.floor(Math.max(0, Math.min(82, Math.floor(actualMaximumValue * 166 - 0.5))));
+        maximumValue = (quantisedMaximumValue + 1) / 166;
+        hash += base83_1.encode83(quantisedMaximumValue, 1);
+    }
+    else {
+        maximumValue = 1;
+        hash += base83_1.encode83(0, 1);
+    }
+    hash += base83_1.encode83(encodeDC(dc), 4);
+    ac.forEach(function (factor) {
+        hash += base83_1.encode83(encodeAC(factor, maximumValue), 2);
+    });
+    return hash;
+};
+exports.default = encode;
+//# sourceMappingURL=encode.js.map
+
+/***/ }),
+
+/***/ "./node_modules/blurhash/dist/error.js":
+/*!*********************************************!*\
+  !*** ./node_modules/blurhash/dist/error.js ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ValidationError = /** @class */ (function (_super) {
+    __extends(ValidationError, _super);
+    function ValidationError(message) {
+        var _this = _super.call(this, message) || this;
+        _this.name = "ValidationError";
+        _this.message = message;
+        return _this;
+    }
+    return ValidationError;
+}(Error));
+exports.ValidationError = ValidationError;
+//# sourceMappingURL=error.js.map
+
+/***/ }),
+
+/***/ "./node_modules/blurhash/dist/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/blurhash/dist/index.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var decode_1 = __webpack_require__(/*! ./decode */ "./node_modules/blurhash/dist/decode.js");
+exports.decode = decode_1.default;
+exports.isBlurhashValid = decode_1.isBlurhashValid;
+var encode_1 = __webpack_require__(/*! ./encode */ "./node_modules/blurhash/dist/encode.js");
+exports.encode = encode_1.default;
+__export(__webpack_require__(/*! ./error */ "./node_modules/blurhash/dist/error.js"));
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/blurhash/dist/utils.js":
+/*!*********************************************!*\
+  !*** ./node_modules/blurhash/dist/utils.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.sRGBToLinear = function (value) {
+    var v = value / 255;
+    if (v <= 0.04045) {
+        return v / 12.92;
+    }
+    else {
+        return Math.pow((v + 0.055) / 1.055, 2.4);
+    }
+};
+exports.linearTosRGB = function (value) {
+    var v = Math.max(0, Math.min(1, value));
+    if (v <= 0.0031308) {
+        return Math.round(v * 12.92 * 255 + 0.5);
+    }
+    else {
+        return Math.round((1.055 * Math.pow(v, 1 / 2.4) - 0.055) * 255 + 0.5);
+    }
+};
+exports.sign = function (n) { return (n < 0 ? -1 : 1); };
+exports.signPow = function (val, exp) {
+    return exports.sign(val) * Math.pow(Math.abs(val), exp);
+};
+//# sourceMappingURL=utils.js.map
 
 /***/ }),
 
@@ -27147,6 +27600,45 @@ component.options.__file = "resources/js/Pages/Dashboard.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Image.vue":
+/*!**************************************!*\
+  !*** ./resources/js/Pages/Image.vue ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Image_vue_vue_type_template_id_32200402___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Image.vue?vue&type=template&id=32200402& */ "./resources/js/Pages/Image.vue?vue&type=template&id=32200402&");
+/* harmony import */ var _Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Image.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Image.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Image_vue_vue_type_template_id_32200402___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Image_vue_vue_type_template_id_32200402___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Image.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/PrivacyPolicy.vue":
 /*!**********************************************!*\
   !*** ./resources/js/Pages/PrivacyPolicy.vue ***!
@@ -28246,6 +28738,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Image.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/Pages/Image.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Image.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Image.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/PrivacyPolicy.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/Pages/PrivacyPolicy.vue?vue&type=script&lang=js& ***!
@@ -29141,6 +29649,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_097ba13b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_097ba13b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Dashboard.vue?vue&type=template&id=097ba13b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Image.vue?vue&type=template&id=32200402&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/Pages/Image.vue?vue&type=template&id=32200402& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_template_id_32200402___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_template_id_32200402___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Image_vue_vue_type_template_id_32200402___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Image.vue?vue&type=template&id=32200402& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Image.vue?vue&type=template&id=32200402&");
 
 
 /***/ }),
@@ -34001,6 +34526,31 @@ var render = function() {
       ])
     ]
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Image.vue?vue&type=template&id=32200402&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Image.vue?vue&type=template&id=32200402& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { ref: "image" })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49524,6 +50074,8 @@ var map = {
 	"./Auth/VerifyEmail.vue": "./resources/js/Pages/Auth/VerifyEmail.vue",
 	"./Dashboard": "./resources/js/Pages/Dashboard.vue",
 	"./Dashboard.vue": "./resources/js/Pages/Dashboard.vue",
+	"./Image": "./resources/js/Pages/Image.vue",
+	"./Image.vue": "./resources/js/Pages/Image.vue",
 	"./PrivacyPolicy": "./resources/js/Pages/PrivacyPolicy.vue",
 	"./PrivacyPolicy.vue": "./resources/js/Pages/PrivacyPolicy.vue",
 	"./Profile/DeleteUserForm": "./resources/js/Pages/Profile/DeleteUserForm.vue",

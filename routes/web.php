@@ -2,9 +2,9 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Spatie\Sheets\Facades\Sheets;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -20,9 +20,10 @@ use Inertia\Inertia;
 // })->name('dashboard');
 
 Route::get('/', function () {
-    $wheres = ['value', 'value3'];
+    $repository = Sheets::collection('posts');
+    $helloWorld = Sheets::collection('posts')->get('2021-05-05.hello-world');
+    dump($helloWorld);
+    dump($repository->all());
 
-    Cache::put('key', array_unique([...$wheres, ...Cache::get('key', [])]), 5);
-
-    dump(Cache::get('key'));
+    return $repository->all();
 });
