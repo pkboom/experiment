@@ -8,9 +8,3 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
-      - name: "Upload Artifact"
-        uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: my_file.txt
-          retention-days: 5
