@@ -11,5 +11,6 @@ class Message extends Model
 
     protected $casts = [
         'permissions' => 'array',
+        'tags' => 'array',
     ];
 }

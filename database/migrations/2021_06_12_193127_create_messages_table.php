@@ -16,10 +16,9 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->string('body');
-            $table->boolean('scope_website')->default(false);
-            $table->boolean('scope_app')->default(false);
-            $table->boolean('scope_rss')->default(false);
             $table->json('permissions')->nullable();
+            $table->string('color')->nullable();
+            $table->json('tags')->nullable();
             $table->timestamps();
         });
     }

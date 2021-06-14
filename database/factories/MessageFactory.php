@@ -23,9 +23,6 @@ class MessageFactory extends Factory
     {
         return [
            'body' => $this->faker->sentence,
-           'scope_website' => $this->faker->boolean(),
-           'scope_app' => $this->faker->boolean(),
-           'scope_rss' => $this->faker->boolean(),
         ];
     }
 }

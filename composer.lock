@@ -4,44 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "63436b968c19a8561aca4dcd7594d270",
+    "content-hash": "d449c5aad4af276e691416212ceba3c7",
     "packages": [
-        {
-            "name": "acme/price-tracker",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "./nova-components/PriceTracker",
-                "reference": "854b6eaa891b8871ff69b0295cfe845e091a4e5b"
-            },
-            "require": {
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Acme\\PriceTracker\\ToolServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Acme\\PriceTracker\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova tool.",
-            "keywords": [
-                "laravel",
-                "nova"
-            ],
-            "transport-options": {
-                "relative": true
-            }
-        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
