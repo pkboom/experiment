@@ -7,7 +7,10 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "watch-price-tracker": "cd nova-components/PriceTracker && npm run watch",
+        "build-price-tracker": "cd nova-components/PriceTracker && npm run dev",
+        "build-price-tracker-prod": "cd nova-components/PriceTracker && npm run prod"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.8.4",
