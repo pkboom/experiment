@@ -15,10 +15,7 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('body');
-            $table->json('permissions')->nullable();
-            $table->string('color')->nullable();
-            $table->json('tags')->nullable();
+            $table->json('address')->nullable();
             $table->timestamps();
         });
     }

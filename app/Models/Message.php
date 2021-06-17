@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    use HasFactory;
+    protected $guarded = [];
 
     protected $casts = [
-        'permissions' => 'array',
-        'tags' => 'array',
+        // 'address' => 'array',
+        'address' => Address2::class,
     ];
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Message;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,7 +18,5 @@ use Inertia\Inertia;
 // })->name('dashboard');
 
 Route::get('/', function () {
-    $article = Message::query()->findOrFail(1);
-
-    return 'haha';
+    return 'asdf';
 });
