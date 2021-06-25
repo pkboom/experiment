@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +20,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('asdfasdf'),
             'email' => 'asdf@asdf.com',
         ]);
+
+        Message::factory(10)->create();
     }
 }
