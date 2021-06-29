@@ -2,6 +2,7 @@
 
 use App\Models\Message;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -19,8 +20,5 @@ use Inertia\Inertia;
 // })->name('dashboard');
 
 Route::get('/', function () {
-    // $message = Message::factory()->create();
-    // Message::first()->address;
-
     return view('welcome');
 });
