@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
-class EmailAccountProfile extends Action
+class ExportUsers extends DetachedAction
 {
     use InteractsWithQueue, Queueable;
 
@@ -21,7 +21,7 @@ class EmailAccountProfile extends Action
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
-    public function handle(ActionFields $fields, Collection $models)
+    public function handle(ActionFields $fields)
     {
         //
     }
