@@ -1,8 +1,6 @@
 <?php
 
-// Reference: http://cs.sensiolabs.org/
-
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setUsingCache(false)
     ->setRiskyAllowed(true)
     ->setRules([
