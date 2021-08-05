@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ee84c69bb3dc3e89d033f4d583751b3",
+    "content-hash": "c5cf6edeef935a2a8739e33e28f5688a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,71 +61,6 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.3"
             },
             "time": "2021-03-11T06:42:03+00:00"
-        },
-        {
-            "name": "beyondcode/laravel-dump-server",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/beyondcode/laravel-dump-server.git",
-                "reference": "e27c7b942ab62f6ac7168359393d328ec5215b89"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/beyondcode/laravel-dump-server/zipball/e27c7b942ab62f6ac7168359393d328ec5215b89",
-                "reference": "e27c7b942ab62f6ac7168359393d328ec5215b89",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
-                "illuminate/http": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
-                "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
-                "php": ">=7.2.5",
-                "symfony/var-dumper": "^5.0"
-            },
-            "require-dev": {
-                "larapack/dd": "^1.0",
-                "phpunit/phpunit": "^7.0|^9.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "BeyondCode\\DumpServer\\DumpServerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "BeyondCode\\DumpServer\\": "src"
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marcel Pociot",
-                    "email": "marcel@beyondco.de",
-                    "homepage": "https://beyondco.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Symfony Var-Dump Server for Laravel",
-            "homepage": "https://github.com/beyondcode/laravel-dump-server",
-            "keywords": [
-                "beyondcode",
-                "laravel-dump-server"
-            ],
-            "support": {
-                "issues": "https://github.com/beyondcode/laravel-dump-server/issues",
-                "source": "https://github.com/beyondcode/laravel-dump-server/tree/1.7.0"
-            },
-            "time": "2020-12-15T10:57:43+00:00"
         },
         {
             "name": "brick/math",
@@ -1351,53 +1286,6 @@
                 }
             ],
             "time": "2021-04-26T11:24:25+00:00"
-        },
-        {
-            "name": "gobrightspot/nova-detached-actions",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gobrightspot/nova-detached-actions.git",
-                "reference": "dc4975cb03c761f8fd9ba7d98e75acc41306af9b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gobrightspot/nova-detached-actions/zipball/dc4975cb03c761f8fd9ba7d98e75acc41306af9b",
-                "reference": "dc4975cb03c761f8fd9ba7d98e75acc41306af9b",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/nova": "^3.0",
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Brightspot\\Nova\\Tools\\DetachedActions\\ToolServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Brightspot\\Nova\\Tools\\DetachedActions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova tool to allow for placing actions in the Nova toolbar detached from the checkbox selection mechanism.",
-            "keywords": [
-                "detached actions",
-                "laravel",
-                "nova"
-            ],
-            "support": {
-                "issues": "https://github.com/gobrightspot/nova-detached-actions/issues",
-                "source": "https://github.com/gobrightspot/nova-detached-actions/tree/1.1.1"
-            },
-            "time": "2020-10-11T22:54:19+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -3403,6 +3291,68 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "spatie/backtrace",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/backtrace.git",
+                "reference": "9b4df807fb65aaa8006dcd7a7ccdef8fb4bb002e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/backtrace/zipball/9b4df807fb65aaa8006dcd7a7ccdef8fb4bb002e",
+                "reference": "9b4df807fb65aaa8006dcd7a7ccdef8fb4bb002e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "phpunit/phpunit": "^9.3",
+                "symfony/var-dumper": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Backtrace\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van de Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A better backtrace",
+            "homepage": "https://github.com/spatie/backtrace",
+            "keywords": [
+                "Backtrace",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/backtrace/issues",
+                "source": "https://github.com/spatie/backtrace/tree/1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/spatie",
+                    "type": "github"
+                },
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "other"
+                }
+            ],
+            "time": "2021-05-19T12:49:10+00:00"
         },
         {
             "name": "spatie/once",
@@ -6138,6 +6088,71 @@
     ],
     "packages-dev": [
         {
+            "name": "beyondcode/laravel-dump-server",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-dump-server.git",
+                "reference": "e27c7b942ab62f6ac7168359393d328ec5215b89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-dump-server/zipball/e27c7b942ab62f6ac7168359393d328ec5215b89",
+                "reference": "e27c7b942ab62f6ac7168359393d328ec5215b89",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "illuminate/http": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "php": ">=7.2.5",
+                "symfony/var-dumper": "^5.0"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "phpunit/phpunit": "^7.0|^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeyondCode\\DumpServer\\DumpServerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeyondCode\\DumpServer\\": "src"
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Symfony Var-Dump Server for Laravel",
+            "homepage": "https://github.com/beyondcode/laravel-dump-server",
+            "keywords": [
+                "beyondcode",
+                "laravel-dump-server"
+            ],
+            "support": {
+                "issues": "https://github.com/beyondcode/laravel-dump-server/issues",
+                "source": "https://github.com/beyondcode/laravel-dump-server/tree/1.7.0"
+            },
+            "time": "2020-12-15T10:57:43+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.4.0",
             "source": {
@@ -8424,5 +8439,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

@@ -8,16 +8,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-
-    <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    @googlefonts
 
 </head>
 
 <body class="font-sans antialiased">
     experiment
+    <img src="/images/samples.png?w=300&h=400&fit=crop">
 </body>
 
 </html>

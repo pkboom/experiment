@@ -2,26 +2,27 @@
 
 namespace Tests\Feature;
 
-use App\Models\Message;
-use HFarm\EmailDomainRule\EmailDomainRule;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $user = User::create([
+            'name' => 'asdf',
+            'password' => bcrypt('asdfasdf'),
+            'email' => 'asdf@asdf.com',
+        ]);
+    }
+
     public function testExample()
     {
-        $email = 'my-email@example.com';
-    
-        Validator::make([
-            'email' => $email,
-        ], [
-            'email' => [
-                'string',
-                'email',
-                new EmailDomainRule,
-            ],
-        ])->validated(); 
+        dump('asdf');
     }
 }
