@@ -23,6 +23,5 @@ class ExampleTest extends TestCase
 
     public function testExample()
     {
-        dump('asdf');
     }
 }
