@@ -13,8 +13,3 @@ Route::get('/', function () {
 
 Route::get('messages', MessageController::class);
 Route::get('users', [UserController::class, 'index']);
-
-Route::post('webhook', function () {
-    Log::info(Request::all());
-    Log::info(Request::all());
-});
