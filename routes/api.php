@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('webhook', function () {
     Log::info(Request::all());
+    Log::info(Request::header());
 });
