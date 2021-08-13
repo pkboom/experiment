@@ -25,4 +25,5 @@ Route::post('webhook', function () {
     $hash = hash('sha256', 'my-secret'.json_encode(Request::all()));
 
     Log::info($hash);
+    Log::info(Request::getContent());
 });
