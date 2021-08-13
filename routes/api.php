@@ -20,13 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('webhook', function () {
-    Log::info(Request::header('x-hub-signature'));
     Log::info(Request::header('X-Hub-Signature'));
     Log::info(Request::header('x-hub-signature-256'));
     Log::info(Request::getContent());
 
+    $signatureData = explode('=', Request::header('x-hub-signature'));
     $hash1 = hash_hmac('sha1', Request::getContent(), 'my-secret');
-    $resultHash1 = hash_equals(Request::header('x-hub-signature'), $hash1);
+    $resultHash1 = hash_equals($signatureData[1], $hash1);
     Log::info($resultHash1);
     
 
