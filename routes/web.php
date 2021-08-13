@@ -14,6 +14,6 @@ Route::get('/', function () {
 Route::get('messages', MessageController::class);
 Route::get('users', [UserController::class, 'index']);
 
-Route::get('webhook', function () {
+Route::post('webhook', function () {
     Log::info(Request::all());
 });
