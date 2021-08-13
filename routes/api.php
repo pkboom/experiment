@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('webhook', function () {
-    Log::info(Request::all());
-    Log::info(Request::header());
+    Log::info(Request::header('x-hub-signature-256'));
+
+    hash('sha256', json_encode(Request::all()));
 });
