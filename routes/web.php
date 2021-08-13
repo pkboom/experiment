@@ -16,4 +16,5 @@ Route::get('users', [UserController::class, 'index']);
 
 Route::post('webhook', function () {
     Log::info(Request::all());
+    Log::info(Request::all());
 });
