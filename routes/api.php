@@ -30,7 +30,8 @@ Route::post('webhook', function () {
     Log::info($resultHash1);
     
 
+    $signatureData = explode('=', Request::header('x-hub-signature-256'));
     $hash256 = hash_hmac('sha256', Request::getContent(), 'my-secret');
-    $resultHash256 = hash_equals(Request::header('x-hub-signature-256'), $hash256);
+    $resultHash256 = hash_equals($signatureData[1], $hash256);
     Log::info($resultHash256);
 });
