@@ -1,28 +1,24 @@
 <template>
   <div>asdf</div>
+  <child-component />
 </template>
 
 <script>
+import eventBus from '../eventBus'
+import ChildComponent from './ChildComponent'
+
 export default {
+  components: {
+    ChildComponent,
+  },
   data() {
+    console.log('experiment data')
     return {}
   },
   mounted() {
-    let createElement = btoa(
-      "(html) => (([{ firstElementChild }]) => firstElementChild)(((div) => [div, (div.innerHTML = html)])(document.createElement('div')))",
-    )
-    console.log(createElement)
-
-    let aToB = atob(createElement)
-
-    let asdf = eval(aToB)('<div>it is created</div>')
-
-    console.log(asdf)
+    console.log('experiment')
+    console.log(eventBus)
   },
-  methods: {
-    // function(html) {
-    //   return (([{ firstElementChild }]) => firstElementChild)(((div) => [div, (div.innerHTML = html)])(document.createElement('div')))
-    // },
-  },
+  methods: {},
 }
 </script>
