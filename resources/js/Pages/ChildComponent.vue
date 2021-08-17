@@ -6,10 +6,6 @@
 // import eventBus from '../eventBus'
 
 export default {
-  data() {
-    console.log('child data')
-    return {}
-  },
   mounted() {
     console.log('child')
     // console.log(eventBus)

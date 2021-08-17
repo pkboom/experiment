@@ -1,23 +1,19 @@
 <template>
-  <div>asdf</div>
   <child-component />
 </template>
 
 <script>
-import eventBus from '../eventBus'
 import ChildComponent from './ChildComponent'
 
 export default {
   components: {
     ChildComponent,
   },
-  data() {
-    console.log('experiment data')
-    return {}
+  setup() {
+    console.log(navigator.bluetooth)
   },
   mounted() {
-    console.log('experiment')
-    console.log(eventBus)
+    console.log('mounted')
   },
   methods: {},
 }
