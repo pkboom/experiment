@@ -9,5 +9,6 @@ Route::get('/', function () {
     return Inertia::render('Experiment');
 });
 
-Route::get('messages', MessageController::class);
+Route::get('messages', MessageController::class)
+    ->name('messages');
 Route::get('users', [UserController::class, 'index']);

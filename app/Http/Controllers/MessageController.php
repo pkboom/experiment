@@ -6,5 +6,6 @@ class MessageController extends Controller
 {
     public function __invoke()
     {
+        return 'messages';
     }
 }
