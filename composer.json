@@ -20,6 +20,7 @@
         "laravel/tinker": "^2.5",
         "league/commonmark": "^2.0",
         "pkboom/laravel-install-packages": "^0.1.4",
+        "staudenmeir/laravel-cte": "^1.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
