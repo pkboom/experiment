@@ -1,5 +1,6 @@
 <template>
   <div>{{ count }}</div>
+  <button @click="printPage">Print</button>
 </template>
 
 <script>

@@ -18,7 +18,6 @@ class CreateMessagesTable extends Migration
             $table->foreignId('user_id');
             $table->string('title')->nullable();
             $table->text('body')->nullable();
-            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

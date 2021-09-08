@@ -12,7 +12,8 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            'address' => $this->faker->address,
+            'title' => $this->faker->word,
+            'body' => $this->faker->paragraph,
         ];
     }
 }
