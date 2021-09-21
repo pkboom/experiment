@@ -10,12 +10,10 @@ class asdf extends Command
 
     public function handle()
     {
-        $codeStatus = shell_exec('code -s');
+        $startServerCommand = 'php -S localhost:8181 -t ./tests/Server/public > /dev/null 2>&1 & echo $!';
 
-        $foo = str_contains($codeStatus, 'input.php');
-        $bar = str_contains($codeStatus, 'output.json');
-        dump($foo);
-        dump($bar);
+        $pid = exec($startServerCommand);
+        dump($pid);
 
         return 0;
     }

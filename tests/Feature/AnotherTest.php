@@ -4,9 +4,10 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\Server\Server;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class AnotherTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -21,10 +22,16 @@ class ExampleTest extends TestCase
         ]);
     }
 
-    public function testExample1234()
+    public function testExample()
     {
-        // dump(__FILE__);
         sleep(1);
         $this->get('/')->assertOk();
+
+        $this->travel(5)->minutes();
+    }
+
+    public function testExample2()
+    {
+        Server::boot();
     }
 }
