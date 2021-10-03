@@ -10,21 +10,29 @@ class ExampleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function setUp(): void
+    public function testExample()
     {
-        parent::setUp();
-
-        $user = User::create([
-            'name' => 'asdf',
-            'password' => bcrypt('asdfasdf'),
-            'email' => 'asdf@asdf.com',
-        ]);
+        dd(User::factory());
     }
+}
 
-    public function testExample1234()
-    {
-        // dump(__FILE__);
-        sleep(1);
-        $this->get('/')->assertOk();
+function generate_numbers()
+{
+    $number = 1;
+
+    while (true) {
+        yield $number;
+
+        $number++;
+    }
+}
+function take($generator, $limit)
+{
+    foreach ($generator as $index => $value) {
+        if ($index === $limit) {
+            break;
+        }
+
+        yield $value;
     }
 }
