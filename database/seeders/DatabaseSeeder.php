@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'asdf@asdf.com',
         ]);
 
-        Message::factory(10)
+        Message::factory(3)
             ->for($user)
             ->create();
     }
