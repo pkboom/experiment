@@ -24,5 +24,21 @@ class DatabaseSeeder extends Seeder
         Message::factory(3)
             ->for($user)
             ->create();
+
+        $user = User::create([
+            'name' => 'asdf2',
+            'password' => bcrypt('asdfasdf'),
+            'email' => 'asdf2@asdf.com',
+        ]);
+
+        Message::factory(3)
+            ->for($user)
+            ->create();
+
+        $user = User::create([
+            'name' => 'asdf3',
+            'password' => bcrypt('asdfasdf'),
+            'email' => 'asdf3@asdf.com',
+        ]);
     }
 }

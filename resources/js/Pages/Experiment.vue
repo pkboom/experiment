@@ -1,16 +1,14 @@
 <template>
   <div>{{ count }}</div>
   <button @click="printPage">Print</button>
+  <button @click="fetch">Fetch from welcome</button>
 </template>
 
 <script>
-import ChildComponent from './ChildComponent'
 import { ref, watchEffect } from 'vue'
+import Http from '@/Utils/Http'
 
 export default {
-  components: {
-    ChildComponent,
-  },
   setup() {
     const count = ref(0)
 
@@ -28,6 +26,14 @@ export default {
     this.count++
     this.count++
   },
-  methods: {},
+  methods: {
+    fetch() {
+      Http.get('/api/welcome').then((response) => {
+        let data = response.data
+
+        console.log(data)
+      })
+    },
+  },
 }
 </script>

@@ -10,10 +10,9 @@ class asdf extends Command
 
     public function handle()
     {
-        $startServerCommand = 'php -S localhost:8181 -t ./tests/Server/public > /dev/null 2>&1 & echo $!';
+        $this->info('asdf');
 
-        $pid = exec($startServerCommand);
-        dump($pid);
+        $this->newLine();
 
         return 0;
     }
