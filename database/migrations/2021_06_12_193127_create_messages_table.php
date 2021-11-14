@@ -19,6 +19,9 @@ class CreateMessagesTable extends Migration
             $table->string('title')->nullable();
             $table->text('body')->nullable();
             $table->timestamps();
+
+            $table->string('serial_number_type')->nullable();
+            $table->unsignedInteger('serial_number_value')->nullable();
         });
     }
 
