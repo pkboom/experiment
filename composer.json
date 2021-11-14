@@ -14,13 +14,12 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.3",
         "inertiajs/inertia-laravel": "^0.4.1",
-        "lab404/laravel-impersonate": "^1.7",
         "laravel/framework": "^8.40",
         "laravel/nova": "~3.0",
         "laravel/sanctum": "^2.6",
+        "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5",
-        "league/commonmark": "^2.0",
-        "spatie/laravel-data": "^1.0",
+        "spatie/interactive-slack-notification-channel": "^1.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
