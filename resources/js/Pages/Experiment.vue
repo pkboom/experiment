@@ -1,38 +1,32 @@
 <template>
-  <div>{{ count }}</div>
-  <button @click="printPage">Print</button>
-  <button @click="fetch">Fetch from welcome</button>
+  <div>
+    <form @submit.prevent="submit">
+      <div class="pr-6 pb-8 w-full">
+        <input v-model="form.name" />
+        <input v-model="form.address" />
+      </div>
+      <div class="px-8 py-4 bg-gray-100 border-t border-gray-100 flex justify-end items-center">
+        <button class="btn-blue" type="submit">Click</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
-import { ref, watchEffect } from 'vue'
-import Http from '@/Utils/Http'
+import { useForm } from '@inertiajs/inertia-vue3'
 
 export default {
   setup() {
-    const count = ref(0)
-
-    watchEffect((onInvalidate) => {
-      console.log(count.value)
-
-      onInvalidate(() => console.log('haha'))
+    const form = useForm({
+      name: null,
+      address: 1234,
     })
 
-    return {
-      count,
-    }
-  },
-  mounted() {
-    this.count++
-    this.count++
+    return { form }
   },
   methods: {
-    fetch() {
-      Http.get('/api/welcome').then((response) => {
-        let data = response.data
-
-        console.log(data)
-      })
+    submit() {
+      this.form.post('/welcome')
     },
   },
 }

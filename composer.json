@@ -17,9 +17,9 @@
         "laravel/framework": "^8.40",
         "laravel/nova": "~3.0",
         "laravel/sanctum": "^2.6",
-        "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5",
-        "spatie/interactive-slack-notification-channel": "^1.0",
+        "spatie/laravel-prefixed-ids": "^1.1",
+        "spatie/period": "^2.3",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

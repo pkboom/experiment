@@ -3,16 +3,24 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Database\Seeders\DatabaseSeeder;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
     public function testExample()
     {
-        $this->seed(DatabaseSeeder::class);
+        // User::first()->latestMessage;
+        $this->get('/');
 
-        User::first()->latestMessage;
+        $asdf = csrf_token();
+
+        dump($asdf);
+        $this->get('/');
+        dump('asdf');
+        dump($asdf);
+        $this->get('/login');
+        dump('asdf');
+        dump($asdf);
 
         $this->assertTrue(true);
     }
