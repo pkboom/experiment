@@ -12,16 +12,6 @@ class ExampleTest extends TestCase
         // User::first()->latestMessage;
         $this->get('/');
 
-        $asdf = csrf_token();
-
-        dump($asdf);
-        $this->get('/');
-        dump('asdf');
-        dump($asdf);
-        $this->get('/login');
-        dump('asdf');
-        dump($asdf);
-
         $this->assertTrue(true);
     }
 }
