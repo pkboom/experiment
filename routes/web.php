@@ -7,7 +7,3 @@ use Inertia\Inertia;
 Route::get('/', function (Request $request) {
     return Inertia::render('Experiment');
 });
-
-Route::get('asdf', function (Request $request) {
-    return Inertia::render('Experiment');
-});
