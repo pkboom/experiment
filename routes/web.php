@@ -2,8 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use Spatie\SimpleExcel\SimpleExcelReader;
 
 Route::get('/', function (Request $request) {
-    return Inertia::render('Experiment');
+    // $json = SimpleExcelReader::create(storage_path('portuguese.xlsx'))->getRows()
+    //     ->mapWithKeys(function (array $rowProperties) {
+    //         return [trim($rowProperties['Recommendation']) => trim($rowProperties['Recomendações'])];
+    //     })->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+    // file_put_contents(storage_path('pt.json'), $json);
 });

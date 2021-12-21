@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class AnotherTest extends TestCase
 {
-    public function testExample()
+    public function testAnother()
     {
         // $this->get('/');
 
@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testExample2()
+    public function testAnother2()
     {
         // $this->get('/');
 

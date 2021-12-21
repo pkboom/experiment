@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "clue/stdio-react": "^2.5",
         "facade/ignition": "^2.10",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -19,6 +20,9 @@
         "laravel/nova": "~3.0",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
+        "pkboom/laravel-test-watcher": "dev-master",
+        "pkboom/laravel-tinker-on-vscode": "^0.2.0",
+        "spatie/simple-excel": "^1.14",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
@@ -28,8 +32,7 @@
         "laracasts/cypress": "^1.4",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3",
-        "pkboom/laravel-dump-tinker": "^0.3"
+        "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {
         "psr-4": {
@@ -71,6 +74,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
+        "laravel-test-watcher": {
+            "type": "path",
+            "url": "../packages/laravel-test-watcher"
+        },
         "0": {
             "type": "composer",
             "url": "https://nova.laravel.com"
