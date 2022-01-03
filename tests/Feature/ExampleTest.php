@@ -2,23 +2,22 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
     public function testExample()
     {
-        // $this->get('/');
+        $user = User::factory()->create();
 
-        // $this->assertTrue(false);
         $this->assertTrue(true);
     }
 
     public function testExample2()
     {
-        // $this->get('/');
+        $user = User::factory()->create();
 
-        // $this->assertTrue(false);
         $this->assertTrue(true);
     }
 }

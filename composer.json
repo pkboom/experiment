@@ -20,8 +20,10 @@
         "laravel/nova": "~3.0",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
+        "nunomaduro/termwind": "^1.2",
         "pkboom/laravel-test-watcher": "dev-master",
         "pkboom/laravel-tinker-on-vscode": "^0.2.0",
+        "spatie/laravel-health": "^1.7",
         "spatie/simple-excel": "^1.14",
         "tightenco/ziggy": "^1.0"
     },
@@ -39,7 +41,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
