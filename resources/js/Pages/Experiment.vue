@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     submit() {
-      this.form.post('/welcome')
+      this.form.post('/experiment')
     },
   },
 }

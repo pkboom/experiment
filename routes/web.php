@@ -1,10 +1,14 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use Spatie\SimpleExcel\SimpleExcelReader;
 
-Route::get('/', function (Request $request) {
+Route::get('/', function () {
+    return Inertia::render('Experiment');
+});
+
+Route::get('portuguese', function () {
     // $json = SimpleExcelReader::create(storage_path('portuguese.xlsx'))->getRows()
     //     ->mapWithKeys(function (array $rowProperties) {
     //         return [trim($rowProperties['Recommendation']) => trim($rowProperties['Recomendações'])];
