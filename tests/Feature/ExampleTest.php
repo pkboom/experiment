@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -17,5 +18,11 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function asdf()
+    {
+        Collection::path('asdf');
     }
 }

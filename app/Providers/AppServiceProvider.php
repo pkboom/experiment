@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Collection::macro('path', function (string $path) {
+            /** @var \Illuminate\Support\Collection $this */
+
+            return data_get($this, $path);
+        });
     }
 }
