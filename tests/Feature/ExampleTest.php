@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -23,6 +21,13 @@ class ExampleTest extends TestCase
     /** @test */
     public function asdf()
     {
-        Collection::path('asdf');
+        $asdf = '$inside = '.'"haha"'.';';
+
+        dump($asdf);
+
+        // eval($asdf);
+        include($asdf);
+
+        dump($inside);
     }
 }
