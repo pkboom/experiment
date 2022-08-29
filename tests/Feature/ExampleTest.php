@@ -2,10 +2,15 @@
 
 namespace Tests\Feature;
 
+use App\Models\Post;
+use Database\Seeders\DatabaseSeeder;
+use Spatie\Snapshots\MatchesSnapshots;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use MatchesSnapshots;
+
     /**
      * A basic test example.
      *
@@ -13,21 +18,8 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response()
     {
-        $response = $this->get('/');
+        $this->seed(DatabaseSeeder::class);
 
-        $response->assertStatus(200);
-    }
-
-    /** @test */
-    public function asdf()
-    {
-        $asdf = '$inside = '.'"haha"'.';';
-
-        dump($asdf);
-
-        // eval($asdf);
-        include($asdf);
-
-        dump($inside);
+        $this->assertMatchesJsonSnapshot(Post::first()->toJson());
     }
 }

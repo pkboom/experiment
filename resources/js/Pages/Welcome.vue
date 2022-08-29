@@ -1,27 +1,24 @@
 <script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3'
-import { ref, onMounted } from 'vue'
-import autoAnimate from '@formkit/auto-animate'
+import { Head, Link } from '@inertiajs/inertia-vue3';
+import { ref, onMounted } from 'vue';
+import autoAnimate from '@formkit/auto-animate';
+import { pipe, range, filter, takeWhile, slice, toArray, concat } from 'lazy-collections';
 
-const dropdown = ref()
-const show = ref(false)
+// Lazy example
+let program = pipe(
+  range(0, 10_000_000),
+  filter(x => x % 100 === 0),
+  filter(x => x % 4 === 0),
+  filter(x => x % 400 === 0),
+  takeWhile(x => x < 1_000),
+  slice(0, 1_000),
+  toArray(),
+);
 
-onMounted(() => {
-  autoAnimate(dropdown.value)
-})
+program = pipe(concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]), toArray());
+console.log([...program()]);
 </script>
 
 <template>
-  <Head title="Welcome" />
-  <div class="focus-within:shadow-lg">
-    <input type="text" />
-  </div>
-  <div ref="dropdown" class="">
-    <strong class="" @click="show = !show">Click me to open!</strong>
-
-    <p class="" v-if="show">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores eos reprehenderit soluta, beatae, delectus fugiat, dolore iusto
-      incidunt nobis quam modi quo eius a quod mollitia sunt iste autem repudiandae!
-    </p>
-  </div>
+  <div>asdf</div>
 </template>

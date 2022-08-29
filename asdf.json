@@ -1,0 +1,33 @@
+{
+  "id": 61,
+  "model_type": null,
+  "model_id": null,
+  "estate_id": 6,
+  "docusign_id": "69598ca9-5f32-4aaa-a5fe-3a392563656e",
+  "type": "notify",
+  "status": "completed",
+  "created_at": "2022-08-03T20:21:21.000000Z",
+  "updated_at": "2022-08-03T20:24:01.000000Z",
+  "deleted_at": null,
+  "esign_documents": [
+    {
+      "id": 2,
+      "name": "CRA Authorization Request",
+      "esign_envelope_id": 61,
+      "docusign_document_id": "2",
+      "form": 209413,
+      "created_at": "2022-08-03T20:21:22.000000Z",
+      "updated_at": "2022-08-03T20:21:22.000000Z",
+      "deleted_at": null,
+      "esign_template": {
+        "key": 209413,
+        "name": "CRA Authorization Request",
+        "docusign_prod_id": "77697671-2ea7-4627-ab9d-5590f0b93cc4",
+        "docusign_dev_id": "939bbf79-8ccd-4efd-8301-02024f41ce3a",
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null
+      }
+    }
+  ]
+}

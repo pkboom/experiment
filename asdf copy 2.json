@@ -1,0 +1,59 @@
+{
+  "emailSubject": "Please sign your lease agreement.",
+  "emailBlurb": "Each tenant must sign individual lease.",
+  "status": "sent",
+  "compositeTemplates": [
+    {
+      "document": {
+        "documentId": "1",
+        "name": "Property-A",
+        "fileExtension": "pdf",
+        "documentBase64": "JVBERi...NCg=="
+      }
+    },
+    {
+      "serverTemplates": [
+        {
+          "sequence": "1",
+          "templateId": "E5577130-xxxx-xxxx-xxxx-95DD79644971"
+        }
+      ],
+      "inlineTemplates": [
+        {
+          "recipients": {
+            "signers": [
+              {
+                "email": "wile.e.coyote@example.com",
+                "name": "Wile E. Coyote",
+                "roleName": "Tenant"
+              }
+            ]
+          },
+          "sequence": "2"
+        }
+      ]
+    },
+    {
+      "serverTemplates": [
+        {
+          "sequence": "1",
+          "templateId": "E5577130-xxxx-xxxx-xxxx-95DD79644971"
+        }
+      ],
+      "inlineTemplates": [
+        {
+          "recipients": {
+            "signers": [
+              {
+                "email": "hunter_of_rabbits@example.com",
+                "name": "Elmer Fudd",
+                "roleName": "Tenant"
+              }
+            ]
+          },
+          "sequence": "2"
+        }
+      ]
+    }
+  ]
+}
