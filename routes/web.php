@@ -1,19 +1,21 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
+    return Inertia::render('Welcome');
+});
 
-    return view('welcome');
+Route::get('/2', function () {
+    return Inertia::render('Welcome2');
+});
 
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::get('/3', function () {
+    return Inertia::render('Welcome3');
+});
+Route::get('/4', function () {
+    return Inertia::render('Welcome4');
 });
 
 Route::middleware([

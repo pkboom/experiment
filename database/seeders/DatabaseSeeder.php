@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,11 +27,6 @@ class DatabaseSeeder extends Seeder
 
         User::factory()
             ->count(10)
-            ->state(new Sequence(
-                ['status' => 0],
-                ['status' => 1],
-            ))
-            ->hasPosts(3)
             ->create();
     }
 }

@@ -1,16 +1,30 @@
 <template>
   <button @click="reload">Reload page</button>
-  <BeforeSuspense :time="3000">
-    <BeforeSuspense :time="2000" />
-    <BeforeSuspense :time="1000">
-      <BeforeSuspense :time="500" />
-      <BeforeSuspense :time="4000" />
-    </BeforeSuspense>
-  </BeforeSuspense>
+  <Suspense>
+    <WithSuspense :time="2000">
+      <WithSuspense :time="1500" />
+      <WithSuspense :time="1200">
+        <WithSuspense :time="1000" />
+
+        <!-- Nest a second Suspense -->
+        <Suspense>
+          <WithSuspense :time="5000" />
+          <template #fallback>
+            <Spinner />
+          </template>
+        </Suspense>
+      </WithSuspense>
+    </WithSuspense>
+
+    <template #fallback>
+      <Spinner />
+    </template>
+  </Suspense>
 </template>
 
 <script setup>
-import BeforeSuspense from './BeforeSuspense.vue'
+import WithSuspense from './WithSuspense.vue'
+import Spinner from './Spinner.vue'
 
 const reload = () => {
   window.location.reload()
