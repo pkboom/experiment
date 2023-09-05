@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -7,15 +8,20 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 });
 
-Route::get('/2', function () {
-    return Inertia::render('Welcome2');
+Route::view('livewire', 'livewire');
+
+Route::get('/sms', function () {
+    Log::info('SMS received');
+
+    return 'hit';
 });
 
-Route::get('/3', function () {
-    return Inertia::render('Welcome3');
-});
-Route::get('/4', function () {
-    return Inertia::render('Welcome4');
+Route::post('/sms', function () {
+    // Log::info('SMS received');
+    Log::info('payload', request()->all());
+    Log::info(request()->bearerToken());
+
+    return 'hit';
 });
 
 Route::middleware([

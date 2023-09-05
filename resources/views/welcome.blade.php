@@ -11,15 +11,14 @@
 </head>
 
 <body>
- 
   <p> Hello </p>
   <p class="thick"> Hello </p>
   Calm down
 
-</div>
-<h2> Using the label with break keyword. </h2>
-   <h4> Users can see the flow of for loops and when stops using break keyword.</h4>
-   <div id="output"> </div>
+  </div>
+  <h2> Using the label with break keyword. </h2>
+  <h4> Users can see the flow of for loops and when stops using break keyword.</h4>
+  <div id="output"> </div>
 </body>
 
 </html>
