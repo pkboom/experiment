@@ -76,7 +76,7 @@ export default {
       this.timer = setInterval(() => {
         now = new Date().getTime()
 
-        if (end - now <= 0 && count % 5 === 0) {
+        if (end - now <= 0 && count % 6 === 0) {
           document
             .getElementById('new-order')
             .play()
@@ -100,7 +100,7 @@ export default {
 
       setTimeout(() => {
         document.getElementById('stopped').style.opacity = '0'
-      }, 5000)
+      }, 4000)
     },
     useHotKeys(e) {
       if (e.key === 's') {
