@@ -7,25 +7,13 @@
     </div>
     <div class="space-x-4 text-3xl">
       <button
+        v-for="minutes in [1, 20, 60]"
+        :key="minutes"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
-        @click="start(25)"
+        @click="start(minutes)"
       >
-        25
-      </button>
-      <button
-        type="button"
-        class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
-        @click="start(10)"
-      >
-        10
-      </button>
-      <button
-        type="button"
-        class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
-        @click="start(5)"
-      >
-        5
+        {{ minutes }}
       </button>
       <button
         type="button"
@@ -86,19 +74,15 @@ export default {
         now = new Date().getTime()
 
         if (end - now <= 0) {
-          this.stop()
-
           document
             .getElementById('new-order')
             .play()
             .catch(() => alert("Can't play sound."))
-
-          return
         }
 
         this.minutes = Math.floor((end - now) / 60 / 1000)
         this.seconds = Math.floor(((end - now) % (60 * 1000)) / 1000)
-      }, 1000)
+      }, 2000)
     },
     stop() {
       this.revertFavicon()
