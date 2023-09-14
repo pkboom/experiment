@@ -66,8 +66,7 @@ export default {
       let milliseconds = seconds * 1000
 
       let now = new Date().getTime()
-      // let end = now + milliseconds
-      let end = now + 2000
+      let end = now + milliseconds
 
       this.minutes = Math.floor((end - now) / 60 / 1000)
       this.seconds = Math.floor(((end - now) % (60 * 1000)) / 1000)
