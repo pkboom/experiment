@@ -7,7 +7,7 @@
     </div>
     <div class="space-x-4 text-3xl">
       <button
-        v-for="minutes in [1, 20, 60]"
+        v-for="minutes in [20, 30, 60]"
         :key="minutes"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
