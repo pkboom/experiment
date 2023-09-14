@@ -23,6 +23,7 @@
         Stop
       </button>
     </div>
+    <div id="stopped" class="text-3xl text-green-600 opacity-0">Stopped</div>
     <audio id="new-order" src="/sound/new-order.ogg" preload="auto" />
   </div>
 </template>
@@ -65,15 +66,18 @@ export default {
       let milliseconds = seconds * 1000
 
       let now = new Date().getTime()
-      let end = now + milliseconds
+      // let end = now + milliseconds
+      let end = now + 2000
 
       this.minutes = Math.floor((end - now) / 60 / 1000)
       this.seconds = Math.floor(((end - now) % (60 * 1000)) / 1000)
 
+      let count = 0
+
       this.timer = setInterval(() => {
         now = new Date().getTime()
 
-        if (end - now <= 0) {
+        if (end - now <= 0 && count % 5 === 0) {
           document
             .getElementById('new-order')
             .play()
@@ -82,9 +86,11 @@ export default {
 
         this.minutes = Math.floor((end - now) / 60 / 1000)
         this.seconds = Math.floor(((end - now) % (60 * 1000)) / 1000)
-      }, 2000)
+      }, 1000)
     },
     stop() {
+      document.getElementById('stopped').style.opacity = '1'
+
       this.revertFavicon()
 
       clearInterval(this.timer)
@@ -92,6 +98,10 @@ export default {
       this.timer = null
       this.minutes = 0
       this.seconds = 0
+
+      setTimeout(() => {
+        document.getElementById('stopped').style.opacity = '0'
+      }, 5000)
     },
     useHotKeys(e) {
       if (e.key === 's') {
