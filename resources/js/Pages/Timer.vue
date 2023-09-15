@@ -8,13 +8,13 @@
     </div>
     <div class="space-x-4 text-3xl">
       <button
-        v-for="minutes in [0.1, 20, 30, 60]"
-        :key="minutes"
+        v-for="min in [0.1, 20, 30, 60]"
+        :key="min"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
-        @click="start(minutes)"
+        @click="start(min)"
       >
-        {{ minutes }}
+        {{ min }}
       </button>
       <button
         type="button"
@@ -38,7 +38,7 @@ const minutes = ref(0)
 const seconds = ref(0)
 
 const displayMinutes = computed(() => {
-  if (timer.value < 0) return 0
+  if (minutes.value < 0) return 0
 
   return minutes.value
 })
@@ -69,25 +69,25 @@ function start(duration = 0) {
   let milliseconds = minToSec * 1000
 
   let now = new Date().getTime()
-  let end = now + milliseconds
+  let future = now + milliseconds
 
-  minutes.value = Math.floor((end - now) / 60 / 1000)
-  seconds.value = Math.floor(((end - now) % (60 * 1000)) / 1000)
+  minutes.value = Math.floor((future - now) / 60 / 1000)
+  seconds.value = Math.floor(((future - now) % (60 * 1000)) / 1000)
 
   let count = 0
 
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    if (end - now <= 0 && count % 6 === 0) {
+    if (future - now <= 0 && count % 6 === 0) {
       document
         .getElementById('new-order')
         .play()
         .catch(() => alert("Can't play sound."))
     }
 
-    minutes.value = Math.floor((end - now) / 60 / 1000)
-    seconds.value = Math.floor(((end - now) % (60 * 1000)) / 1000)
+    minutes.value = Math.floor((future - now) / 60 / 1000)
+    seconds.value = Math.floor(((future - now) % (60 * 1000)) / 1000)
   }, 1000)
 }
 
