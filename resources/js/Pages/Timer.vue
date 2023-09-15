@@ -1,4 +1,5 @@
 <template>
+  <Head title="Timer" />
   <div class="flex min-h-screen flex-col items-center justify-center space-y-4">
     <div class="flex items-center space-x-2 text-6xl">
       <span>{{ displayMinutes }}</span>
@@ -7,7 +8,7 @@
     </div>
     <div class="space-x-4 text-3xl">
       <button
-        v-for="minutes in [20, 30, 60]"
+        v-for="minutes in [0.1, 20, 30, 60]"
         :key="minutes"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
@@ -28,113 +29,115 @@
   </div>
 </template>
 
-<script>
-export default {
-  metaInfo: { title: 'Timer' },
-  data() {
-    return {
-      timer: null,
-      minutes: 0,
-      seconds: 0,
+<script setup>
+import { ref, computed, onMounted, onBeforeMount } from 'vue'
+import { Head } from '@inertiajs/vue3'
+
+const timer = ref(null)
+const minutes = ref(0)
+const seconds = ref(0)
+
+const displayMinutes = computed(() => {
+  if (timer.value < 0) return 0
+
+  return minutes.value
+})
+
+const displaySeconds = computed(() => {
+  if (seconds.value < 0) return '00'
+
+  return seconds.value.toString().padStart(2, '0')
+})
+
+onMounted(() => {
+  document.addEventListener('keydown', useHotKeys)
+})
+
+onBeforeMount(() => {
+  console.log('beforeDestroy')
+  clearInterval(timer.value)
+
+  document.removeEventListener('keydown', useHotKeys)
+})
+
+function start(duration = 0) {
+  if (timer.value) return
+
+  changeFaviconToTimer()
+
+  let minToSec = duration ? 60 * duration : 60 * minutes.value
+  let milliseconds = minToSec * 1000
+
+  let now = new Date().getTime()
+  let end = now + milliseconds
+
+  minutes.value = Math.floor((end - now) / 60 / 1000)
+  seconds.value = Math.floor(((end - now) % (60 * 1000)) / 1000)
+
+  let count = 0
+
+  timer.value = setInterval(() => {
+    now = new Date().getTime()
+
+    if (end - now <= 0 && count % 6 === 0) {
+      document
+        .getElementById('new-order')
+        .play()
+        .catch(() => alert("Can't play sound."))
     }
-  },
-  computed: {
-    displayMinutes() {
-      if (this.minutes < 0) return 0
 
-      return this.minutes
-    },
-    displaySeconds() {
-      if (this.seconds < 0) return '00'
+    minutes.value = Math.floor((end - now) / 60 / 1000)
+    seconds.value = Math.floor(((end - now) % (60 * 1000)) / 1000)
+  }, 1000)
+}
 
-      return this.seconds.toString().padStart(2, '0')
-    },
-  },
-  mounted() {
-    document.addEventListener('keydown', this.useHotKeys)
-  },
-  beforeDestroy() {
-    clearInterval(this.timer)
+function stop() {
+  document.getElementById('stopped').style.opacity = '1'
 
-    document.removeEventListener('keydown', this.useHotKeys)
-  },
-  methods: {
-    start(duration = 0) {
-      if (this.timer) return
+  revertFavicon()
 
-      this.changeFaviconToTimer()
+  clearInterval(timer.value)
 
-      let seconds = duration ? 60 * duration : 60 * this.minutes
-      let milliseconds = seconds * 1000
+  timer.value = null
+  minutes.value = 0
+  seconds.value = 0
 
-      let now = new Date().getTime()
-      let end = now + milliseconds
+  setTimeout(() => {
+    document.getElementById('stopped').style.opacity = '0'
+  }, 4000)
+}
 
-      this.minutes = Math.floor((end - now) / 60 / 1000)
-      this.seconds = Math.floor(((end - now) % (60 * 1000)) / 1000)
+function useHotKeys(e) {
+  if (e.key === 's') {
+    e.preventDefault()
 
-      let count = 0
+    timer.value ? stop() : start()
+  }
 
-      this.timer = setInterval(() => {
-        now = new Date().getTime()
+  if (e.key === 'i') {
+    e.preventDefault()
 
-        if (end - now <= 0 && count % 6 === 0) {
-          document
-            .getElementById('new-order')
-            .play()
-            .catch(() => alert("Can't play sound."))
-        }
+    minutes.value += 10
+  }
 
-        this.minutes = Math.floor((end - now) / 60 / 1000)
-        this.seconds = Math.floor(((end - now) % (60 * 1000)) / 1000)
-      }, 1000)
-    },
-    stop() {
-      document.getElementById('stopped').style.opacity = '1'
+  if (e.key === 'd') {
+    e.preventDefault()
 
-      this.revertFavicon()
+    minutes.value -= 10
+  }
+}
 
-      clearInterval(this.timer)
+function revertFavicon() {
+  favicon('/favicon-32x32.png')
+}
 
-      this.timer = null
-      this.minutes = 0
-      this.seconds = 0
+function changeFaviconToTimer() {
+  favicon('/timer-32x32.png')
+}
 
-      setTimeout(() => {
-        document.getElementById('stopped').style.opacity = '0'
-      }, 4000)
-    },
-    useHotKeys(e) {
-      if (e.key === 's') {
-        e.preventDefault()
+function favicon(favicon = null) {
+  let links = [...document.querySelectorAll('link[rel="icon"]')]
 
-        this.timer ? this.stop() : this.start()
-      }
-
-      if (e.key === 'i') {
-        e.preventDefault()
-
-        this.minutes += 10
-      }
-
-      if (e.key === 'd') {
-        e.preventDefault()
-
-        this.minutes -= 10
-      }
-    },
-    revertFavicon() {
-      this.favicon('/favicon-32x32.png')
-    },
-    changeFaviconToTimer() {
-      this.favicon('/timer-32x32.png')
-    },
-    favicon(favicon = null) {
-      let links = [...document.querySelectorAll('link[rel="icon"]')]
-      console.log(links)
-
-      links.forEach(link => (link.href = favicon))
-    },
-  },
+  links.forEach(link => (link.href = favicon))
 }
 </script>
