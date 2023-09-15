@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeMount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { Head } from '@inertiajs/vue3'
 
 const timer = ref(null)
@@ -53,8 +53,7 @@ onMounted(() => {
   document.addEventListener('keydown', useHotKeys)
 })
 
-onBeforeMount(() => {
-  console.log('beforeDestroy')
+onBeforeUnmount(() => {
   clearInterval(timer.value)
 
   document.removeEventListener('keydown', useHotKeys)
@@ -79,7 +78,9 @@ function start(duration = 0) {
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    if (future - now <= 0 && count % 6 === 0) {
+    console.log({ count, now })
+
+    if (future - now <= 0 && count++ % 6 === 0) {
       document
         .getElementById('new-order')
         .play()
@@ -92,6 +93,8 @@ function start(duration = 0) {
 }
 
 function stop() {
+  console.log('Stopped')
+
   document.getElementById('stopped').style.opacity = '1'
 
   revertFavicon()
