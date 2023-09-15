@@ -54,6 +54,8 @@ export default {
     document.addEventListener('keydown', this.useHotKeys)
   },
   beforeDestroy() {
+    clearInterval(this.timer)
+
     document.removeEventListener('keydown', this.useHotKeys)
   },
   methods: {
@@ -125,7 +127,7 @@ export default {
       this.favicon('/favicon-32x32.png')
     },
     changeFaviconToTimer() {
-      this.favicon('/favicon-timer.png')
+      this.favicon('/timer-32x32.png')
     },
     favicon(favicon = null) {
       let links = [...document.querySelectorAll('link[rel="icon"]')]
