@@ -62,7 +62,7 @@ onBeforeUnmount(() => {
 function start(duration = 0) {
   if (timer.value) return
 
-  changeFaviconToTimer()
+  timerFavicon()
 
   let minToSec = duration ? 60 * duration : 60 * minutes.value
   let milliseconds = minToSec * 1000
@@ -81,6 +81,8 @@ function start(duration = 0) {
     console.log({ count, now })
 
     if (future - now <= 0 && count++ % 6 === 0) {
+      timesUpFavicon()
+
       document
         .getElementById('new-order')
         .play()
@@ -97,7 +99,7 @@ function stop() {
 
   document.getElementById('stopped').style.opacity = '1'
 
-  revertFavicon()
+  defaultFavicon()
 
   clearInterval(timer.value)
 
@@ -130,11 +132,15 @@ function useHotKeys(e) {
   }
 }
 
-function revertFavicon() {
+function defaultFavicon() {
   favicon('/favicon-32x32.png')
 }
 
-function changeFaviconToTimer() {
+function timesUpFavicon() {
+  favicon('/timer-32x32.png')
+}
+
+function timerFavicon() {
   favicon('/timer-32x32.png')
 }
 
