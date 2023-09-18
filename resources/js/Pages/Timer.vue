@@ -78,8 +78,6 @@ function start(duration = 0) {
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    console.log({ count, now })
-
     if (future - now <= 0 && count++ % 6 === 0) {
       timesUpFavicon()
 
