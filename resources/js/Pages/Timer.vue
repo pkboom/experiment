@@ -8,7 +8,7 @@
     </div>
     <div class="space-x-4 text-3xl">
       <button
-        v-for="min in [0.1, 20, 30, 60]"
+        v-for="min in [20, 30, 60, 80]"
         :key="min"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
