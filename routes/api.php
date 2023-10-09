@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Spatie\PdfToImage\Pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('deviceRenderingContent/{uuid}', function () {
+    $uuid = Str::uuid();
+
+    $path = storage_path("{$uuid}.jpeg");
+
+    $pdf = new Pdf(request()->file('image')->getPathName());
+
+    $pdf->saveImage($path);
+
+    return response()->json([
+        'uuid' => $uuid,
+    ]);
+    // $deviceRendering->saveImage($path);
+
 });
