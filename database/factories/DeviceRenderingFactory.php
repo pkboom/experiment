@@ -11,7 +11,7 @@ class DeviceRenderingFactory extends Factory
     {
         return [
            'uuid' => $this->faker->uuid(),
-           'device_id' => $this->faker->randomElement([1, 2]),
+           'device_id' => $this->faker->randomElement([1, 2, 3]),
            'rendering_id' => $this->faker->numberBetween(1000, 9000),
            'created_at' => $this->faker->dateTimeBetween('-10 days', 'now'),
         ];
