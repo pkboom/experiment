@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         DeviceRendering::factory()
-        ->count(110)
+        ->count(100)
         ->create();
 
     }
