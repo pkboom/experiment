@@ -1,10 +1,4 @@
-> **Note**
-> asfawefawef
->
-> This is a note
-
-> **Warning**
-> This is a warning
+[Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 ```mermaid
 flowchart TD;
