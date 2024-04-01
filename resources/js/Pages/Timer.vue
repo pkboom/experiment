@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid-cols-3 gap-4">
       <button
-        v-for="min in [5, 10, 15, 20, 25, 30, 60, 80]"
+        v-for="min in [5, 25, 60]"
         :key="min"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
@@ -38,14 +38,10 @@ const minutes = ref(0)
 const seconds = ref(0)
 
 const displayMinutes = computed(() => {
-  if (minutes.value < 0) return 0
-
   return minutes.value
 })
 
 const displaySeconds = computed(() => {
-  if (seconds.value < 0) return '00'
-
   return seconds.value.toString().padStart(2, '0')
 })
 
@@ -68,17 +64,17 @@ function start(duration = 0) {
   let milliseconds = minToSec * 1000
 
   let now = new Date().getTime()
-  let future = now + milliseconds
+  let setTime = now + milliseconds
 
-  minutes.value = Math.floor((future - now) / 60 / 1000)
-  seconds.value = Math.floor(((future - now) % (60 * 1000)) / 1000)
+  minutes.value = Math.floor((setTime - now) / 60 / 1000)
+  seconds.value = Math.floor(((setTime - now) % (60 * 1000)) / 1000)
 
   let count = 0
 
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    if (future - now <= 0 && count++ % 6 === 0) {
+    if (setTime - now <= 0 && count++ % 1 === 0) {
       timesUpFavicon()
 
       document
@@ -87,8 +83,8 @@ function start(duration = 0) {
         .catch(() => alert("Can't play sound."))
     }
 
-    minutes.value = Math.floor((future - now) / 60 / 1000)
-    seconds.value = Math.floor(((future - now) % (60 * 1000)) / 1000)
+    minutes.value = Math.floor((setTime - now) / 60 / 1000)
+    seconds.value = Math.floor(((setTime - now) % (60 * 1000)) / 1000)
   }, 1000)
 }
 
