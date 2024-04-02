@@ -74,7 +74,7 @@ function start(duration = 0) {
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    if (setTime - now <= 0 && count++ % 1 === 0) {
+    if (setTime - now < 0 && count++ % 5 === 0) {
       timesUpFavicon()
 
       document
