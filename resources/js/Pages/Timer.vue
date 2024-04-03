@@ -25,7 +25,7 @@
       </button>
     </div>
     <div id="stopped" class="text-3xl text-green-600 opacity-0">Stopped</div>
-    <audio id="new-order" src="/sound/new-order.ogg" preload="auto" />
+    <audio id="times-up" src="/sound/times-up.ogg" preload="auto" />
   </div>
 </template>
 
@@ -56,12 +56,12 @@ onBeforeUnmount(() => {
 })
 
 function start(duration = 0) {
-  if (timer.value) return
+  if (timerRunning()) return
 
   timerFavicon()
 
-  let minToSec = duration ? 60 * duration : 60 * minutes.value
-  let milliseconds = minToSec * 1000
+  let seconds_ = duration ? 60 * duration : 60 * minutes.value
+  let milliseconds = seconds_ * 1000
 
   let now = new Date().getTime()
   let setTime = now + milliseconds
@@ -75,10 +75,13 @@ function start(duration = 0) {
     now = new Date().getTime()
 
     if (setTime - now < 0 && count++ % 5 === 0) {
+      console.log({ count })
+      console.log('Times up')
+
       timesUpFavicon()
 
       document
-        .getElementById('new-order')
+        .getElementById('times-up')
         .play()
         .catch(() => alert("Can't play sound."))
     }
@@ -86,6 +89,10 @@ function start(duration = 0) {
     minutes.value = Math.floor((setTime - now) / 60 / 1000)
     seconds.value = Math.floor(((setTime - now) % (60 * 1000)) / 1000)
   }, 1000)
+}
+
+function timerRunning() {
+  return timer.value
 }
 
 function stop() {
@@ -103,7 +110,7 @@ function stop() {
 
   setTimeout(() => {
     document.getElementById('stopped').style.opacity = '0'
-  }, 4000)
+  }, 5000)
 }
 
 function useHotKeys(e) {
