@@ -117,7 +117,7 @@ function useHotKeys(e) {
   if (e.code === 'Space') {
     e.preventDefault()
 
-    timer.value ? stop() : start()
+    timer.value ? stop() : start(25)
   }
 
   if (e.key === 'i') {
