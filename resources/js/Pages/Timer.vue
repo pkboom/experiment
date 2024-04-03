@@ -117,7 +117,7 @@ function useHotKeys(e) {
   if (e.code === 'Space') {
     e.preventDefault()
 
-    timer.value ? stop() : null
+    timer.value ? stop() : start()
   }
 
   if (e.key === 'i') {
@@ -128,6 +128,8 @@ function useHotKeys(e) {
 
   if (e.key === 'd') {
     e.preventDefault()
+
+    if (minutes.value <= 0) return
 
     minutes.value -= 10
   }
