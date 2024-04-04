@@ -25,6 +25,7 @@
       </button>
     </div>
     <div id="stopped" class="text-3xl text-green-600 opacity-0">Stopped</div>
+    <div id="minutes" class="text-3xl text-green-600 opacity-0">5</div>
     <audio id="times-up" src="/sound/times-up.ogg" preload="auto" />
   </div>
 </template>
@@ -110,29 +111,35 @@ function stop() {
 
   setTimeout(() => {
     document.getElementById('stopped').style.opacity = '0'
-  }, 5000)
+  }, 7000)
 }
 
 function useHotKeys(e) {
   if (e.code === 'Space') {
     e.preventDefault()
 
-    timer.value ? stop() : start(25)
+    if (timer.value) {
+      stop()
+
+      return
+    }
+
+    let minutes = document.getElementById('minutes').textContent
+
+    minutes = minutes === '5' ? 25 : 5
+
+    document.getElementById('minutes').textContent = minutes
+
+    console.log({ minutes })
+
+    timer.value ? stop() : start(minutes)
   }
 
-  if (e.key === 'i') {
-    e.preventDefault()
+  //   if (e.key === 'f') {
+  //     e.preventDefault()
 
-    minutes.value += 10
-  }
-
-  if (e.key === 'd') {
-    e.preventDefault()
-
-    if (minutes.value <= 0) return
-
-    minutes.value -= 10
-  }
+  //     timer.value ? stop() : start(5)
+  //   }
 }
 
 function defaultFavicon() {
