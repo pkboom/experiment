@@ -126,7 +126,7 @@ function useHotKeys(e) {
 
     let minutes = document.getElementById('minutes').textContent
 
-    minutes = minutes === '5' ? 25 : 5
+    minutes = minutes === '25' ? 5 : 25
 
     document.getElementById('minutes').textContent = minutes
 
