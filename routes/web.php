@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
+    return view('welcome', [
+        'users' => User::paginate(),
+    ]);
+    // return Inertia::render('Welcome');
 });
 
 Route::view('livewire', 'livewire');

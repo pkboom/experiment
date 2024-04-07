@@ -2,23 +2,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <meta charset="utf-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
-  <title>Laravel</title>
-  <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+    <title>Laravel</title>
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-  <p> Hello </p>
-  <p class="thick"> Hello </p>
-  Calm down
-
-  </div>
-  <h2> Using the label with break keyword. </h2>
-  <h4> Users can see the flow of for loops and when stops using break keyword.</h4>
-  <div id="output"> </div>
+    {{ $users->links() }}
 </body>
 
 </html>

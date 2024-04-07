@@ -25,7 +25,6 @@
       </button>
     </div>
     <div id="stopped" class="text-3xl text-green-600 opacity-0">Stopped</div>
-    <div id="minutes" class="text-3xl text-green-600 opacity-0">5</div>
     <audio id="times-up" src="/sound/times-up.ogg" preload="auto" />
   </div>
 </template>
@@ -37,6 +36,7 @@ import { Head } from '@inertiajs/vue3'
 const timer = ref(null)
 const minutes = ref(0)
 const seconds = ref(0)
+const input = ref(0)
 
 const displayMinutes = computed(() => {
   return minutes.value
@@ -59,23 +59,23 @@ onBeforeUnmount(() => {
 function start(duration = 0) {
   if (timerRunning()) return
 
+  input.value = duration
+
   timerFavicon()
 
-  let seconds_ = duration ? 60 * duration : 60 * minutes.value
-  let milliseconds = seconds_ * 1000
-
   let now = new Date().getTime()
-  let setTime = now + milliseconds
+  let durationInmilliseconds = duration * 60 * 1000
+  let timesUp = now + durationInmilliseconds
 
-  minutes.value = Math.floor((setTime - now) / 60 / 1000)
-  seconds.value = Math.floor(((setTime - now) % (60 * 1000)) / 1000)
+  minutes.value = Math.floor((timesUp - now) / 60 / 1000)
+  seconds.value = Math.floor(((timesUp - now) % (60 * 1000)) / 1000)
 
   let count = 0
 
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    if (setTime - now < 0 && count++ % 7 === 0) {
+    if (timesUp - now < 0 && count++ % 7 === 0) {
       console.log({ count })
       console.log('Times up')
 
@@ -87,8 +87,8 @@ function start(duration = 0) {
         .catch(() => alert("Can't play sound."))
     }
 
-    minutes.value = Math.floor((setTime - now) / 60 / 1000)
-    seconds.value = Math.floor(((setTime - now) % (60 * 1000)) / 1000)
+    minutes.value = Math.floor((timesUp - now) / 60 / 1000)
+    seconds.value = Math.floor(((timesUp - now) % (60 * 1000)) / 1000)
   }, 1000)
 }
 
@@ -118,21 +118,7 @@ function useHotKeys(e) {
   if (e.code === 'Space') {
     e.preventDefault()
 
-    if (timer.value) {
-      stop()
-
-      return
-    }
-
-    let minutes = document.getElementById('minutes').textContent
-
-    minutes = minutes === '25' ? 5 : 25
-
-    document.getElementById('minutes').textContent = minutes
-
-    console.log({ minutes })
-
-    timer.value ? stop() : start(minutes)
+    timer.value ? stop() : start(input.value === 25 ? 5 : 25)
   }
 
   //   if (e.key === 'f') {
