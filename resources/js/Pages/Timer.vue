@@ -75,7 +75,7 @@ function start(duration = 0) {
   timer.value = setInterval(() => {
     now = new Date().getTime()
 
-    if (timesUp - now < 0 && count++ % 7 === 0) {
+    if (timesUp - now < 0 && count++ % 9 === 0) {
       console.log({ count })
       console.log('Times up')
 
