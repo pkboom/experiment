@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid-cols-3 gap-4">
       <button
-        v-for="min in [5, 10, 25, 60]"
+        v-for="min in [0.05, 5, 10, 25, 60]"
         :key="min"
         type="button"
         class="border rounded-lg border-gray-400 px-8 py-4 text-3xl hover:border-indigo-500 hover:text-indigo-500"
@@ -133,7 +133,7 @@ function defaultFavicon() {
 }
 
 function timesUpFavicon() {
-  favicon('/timer-32x32.png')
+  favicon('/light.png')
 }
 
 function timerFavicon() {
