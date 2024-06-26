@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\DeviceRendering;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,9 +29,21 @@ class DatabaseSeeder extends Seeder
             ->count(10)
             ->create();
 
-        DeviceRendering::factory()
-        ->count(100)
-        ->create();
+        $password = bcrypt('asdfasdf');
 
+        $query = <<<QEURY
+SET cte_max_recursion_depth = 4294967295;
+
+INSERT INTO users (name, email, password)
+WITH RECURSIVE counter(n) AS(
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM counter WHERE n < 100
+)
+SELECT CONCAT('name-', counter.n), CONCAT(CONCAT('mail-',  counter.n), '@gmail.com'), '{$password}'
+FROM counter
+QEURY;
+
+        DB::unprepared($query);
     }
 }

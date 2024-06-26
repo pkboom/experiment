@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
-        "inertiajs/inertia-laravel": "^0.6.8",
+        "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^10.0",
         "laravel/jetstream": "^3.0",
         "laravel/sanctum": "^3.2",
@@ -25,6 +25,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.0",
+        "pkboom/laravel-pick": "^0.0.10",
         "pkboom/laravel-tinker-on-vscode": "^0.2.24",
         "spatie/laravel-ignition": "^2.0"
     },

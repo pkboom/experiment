@@ -1,0 +1,50 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const width = 100
+const height = 100
+const lines = 10
+const paths = ref([])
+
+function render() {
+  for (let i = 0; i < lines; i++) {
+    const offset = height / lines
+
+    let points = []
+
+    for (let j = 0; j <= 1; j++) {
+      const x = width * j
+      const y = offset * i
+
+      points.push({ x: x, y: y })
+    }
+
+    const thickness = height / lines
+
+    for (let k = 1; k >= 0; k--) {
+      const x = width * k
+      const y = offset + thickness * i
+
+      points.push({ x: x, y: y })
+    }
+
+    const line = points.map(point => `${point.x} ${point.y}`).join(' ')
+
+    paths.value[i] = `M ${line} Z`
+  }
+}
+
+function color(index, length) {
+  const hue = (360 / length) * index
+
+  return `hsl( ${hue}, 100%, 50% )`
+}
+
+onMounted(() => render())
+</script>
+
+<template>
+  <svg preserveAspectRatio="none" v-bind:viewBox="`0 0 ${width} ${height}`">
+    <path v-for="(path, key) in paths" v-bind:key="`path-${key}`" v-bind:fill="color(key, paths.length)" v-bind:d="path" />
+  </svg>
+</template>
